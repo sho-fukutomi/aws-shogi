@@ -1,0 +1,1333 @@
+2017-07-03 11:08:18 Error: Fatal Error (4): syntax error, unexpected '>' in [/var/www/html/shogi/app/View/Layouts/default.ctp, line 50]
+2017-07-03 11:08:18 Error: [FatalErrorException] syntax error, unexpected '>'
+Request URL: /shogi/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 50)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 50, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 50, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 11:15:12 Error: [MissingControllerException] Controller class PhpMyAdmin-472-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-472-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-472-all-languages/index
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 11:18:31 Error: [MissingControllerException] Controller class PhpMyAdmin-472-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-472-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-472-all-languages/index
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 14:16:09 Error: [MissingControllerException] Controller class PhpMyAdmin-4.2.7-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-4.2.7-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-4.2.7-all-languages
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 14:16:44 Error: [MissingControllerException] Controller class PhpMyAdmin-4.2.7-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-4.2.7-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-4.2.7-all-languages
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 15:39:55 Error: [MissingControllerException] Controller class MyadminController could not be found.
+Exception Attributes: array (
+  'class' => 'MyadminController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/myadmin/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 22:23:16 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 22:23:35 Error: [MissingActionException] Action RoomController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'RoomController',
+  'action' => 'index',
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#2 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-07-03 22:25:08 Error: [MissingControllerException] Controller class MyadminController could not be found.
+Exception Attributes: array (
+  'class' => 'MyadminController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/myadmin/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 22:47:29 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 22:49:00 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/var/www/html/shogi/app/Controller/RoomController.php, line 17]
+2017-07-03 22:49:00 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 22:49:20 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-03 22:49:24 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 28]
+2017-07-03 22:49:24 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 28)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 28, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 28, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 22:49:34 Error: [MissingTableException] Table rooms for model room was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'rooms',
+  'class' => 'room',
+  'ds' => 'default',
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Model.php(3667): Model->setSource('rooms')
+#1 /var/www/html/shogi/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#3 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#4 [internal function]: RoomController->index()
+#5 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#6 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#8 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2017-07-03 22:50:25 Error: [MissingTableException] Table rooms for model room was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'rooms',
+  'class' => 'room',
+  'ds' => 'default',
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Model.php(3667): Model->setSource('rooms')
+#1 /var/www/html/shogi/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#3 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#4 [internal function]: RoomController->index()
+#5 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#6 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#8 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2017-07-03 22:51:24 Error: [MissingTableException] Table rooms for model room was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'rooms',
+  'class' => 'room',
+  'ds' => 'default',
+)
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Model.php(3667): Model->setSource('rooms')
+#1 /var/www/html/shogi/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#3 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#4 [internal function]: RoomController->index()
+#5 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#6 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#8 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2017-07-03 22:53:30 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shogi.rooms' doesn't exist
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/shogi/lib/Cake/Model/Datasource/Database/Mysql.php(340): DboSource->_execute('SHOW FULL COLUM...')
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1397): Mysql->describe(Object(AppModel))
+#3 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#4 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#5 [internal function]: RoomController->index()
+#6 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#9 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2017-07-03 23:05:43 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shogi.rooms' doesn't exist
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/shogi/lib/Cake/Model/Datasource/Database/Mysql.php(340): DboSource->_execute('SHOW FULL COLUM...')
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1397): Mysql->describe(Object(AppModel))
+#3 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#4 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#5 [internal function]: RoomController->index()
+#6 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#9 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2017-07-03 23:05:44 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shogi.rooms' doesn't exist
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/shogi/lib/Cake/Model/Datasource/Database/Mysql.php(340): DboSource->_execute('SHOW FULL COLUM...')
+#2 /var/www/html/shogi/lib/Cake/Model/Model.php(1397): Mysql->describe(Object(AppModel))
+#3 /var/www/html/shogi/lib/Cake/Model/Model.php(1582): Model->schema()
+#4 /var/www/html/shogi/app/Controller/RoomController.php(21): Model->create()
+#5 [internal function]: RoomController->index()
+#6 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#7 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#9 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2017-07-03 23:06:41 Error: Fatal Error (1): Call to a member function create() on a non-object in [/var/www/html/shogi/app/Controller/RoomController.php, line 21]
+2017-07-03 23:06:41 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/s...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/s...', 21, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/s...', 21, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 23:07:09 Error: Fatal Error (1): Call to a member function save() on a non-object in [/var/www/html/shogi/app/Controller/RoomController.php, line 22]
+2017-07-03 23:07:09 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/s...', 22)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/s...', 22, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/s...', 22, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 23:39:38 Error: Fatal Error (4): syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in [/var/www/html/shogi/app/Controller/RoomController.php, line 14]
+2017-07-03 23:39:38 Error: [FatalErrorException] syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')'
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 14)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 14, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 14, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 23:52:31 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 22]
+2017-07-03 23:52:31 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 22)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 22, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 22, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-03 23:58:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '0.0.0.0')' at line 1
+Request URL: /shogi/room
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('INSERT INTO `sh...', Array)
+#2 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(1090): DboSource->execute('INSERT INTO `sh...')
+#3 /var/www/html/shogi/lib/Cake/Model/Model.php(1940): DboSource->create(Object(AppModel), Array, Array)
+#4 /var/www/html/shogi/lib/Cake/Model/Model.php(1758): Model->_doSave(NULL, Array)
+#5 /var/www/html/shogi/app/Controller/RoomController.php(29): Model->save()
+#6 [internal function]: RoomController->index()
+#7 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(RoomController), Array)
+#8 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#9 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#10 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2017-07-04 13:20:53 Error: [MissingControllerException] Controller class PhpMyAdmin-4.7.2-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-4.7.2-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-4.7.2-all-languages/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 13:30:58 Error: [MissingHelperException] Helper class htmlHelper could not be found.
+Exception Attributes: array (
+  'class' => 'htmlHelper',
+  'plugin' => false,
+)
+Request URL: /shogi/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('html')
+#1 /var/www/html/shogi/lib/Cake/View/View.php(858): HelperCollection->__isset('html')
+#2 /var/www/html/shogi/app/View/Pages/home.ctp(2): View->__get('html')
+#3 /var/www/html/shogi/lib/Cake/View/View.php(971): include('/var/www/html/s...')
+#4 /var/www/html/shogi/lib/Cake/View/View.php(933): View->_evaluate('/var/www/html/s...', Array)
+#5 /var/www/html/shogi/lib/Cake/View/View.php(473): View->_render('/var/www/html/s...')
+#6 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render('home', NULL)
+#7 /var/www/html/shogi/app/Controller/PagesController.php(72): Controller->render('home')
+#8 [internal function]: PagesController->display('home')
+#9 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#10 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#12 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2017-07-04 13:33:31 Error: [MissingControllerException] Controller class ShogiController could not be found.
+Exception Attributes: array (
+  'class' => 'ShogiController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/shogi/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 13:57:19 Error: [MissingControllerException] Controller class MakeroomController could not be found.
+Exception Attributes: array (
+  'class' => 'MakeroomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 13:58:01 Error: [MissingViewException] View file "Room/makeroom.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Room/makeroom.ctp',
+)
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-07-04 13:59:35 Error: [MissingViewException] View file "Room/makeroom.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Room/makeroom.ctp',
+)
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-07-04 14:00:32 Error: Fatal Error (4): syntax error, unexpected '[', expecting ')' in [/var/www/html/shogi/app/Controller/RoomController.php, line 23]
+2017-07-04 14:00:32 Error: [FatalErrorException] syntax error, unexpected '[', expecting ')'
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 23, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 23, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 14:03:25 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 23]
+2017-07-04 14:03:25 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 23, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 23, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 14:04:36 Error: [MissingControllerException] Controller class Roomroom-595b21e3b7035Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Roomroom-595b21e3b7035Controller',
+  'plugin' => NULL,
+)
+Request URL: /shogi/roomroom-595b21e3b7035
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 14:04:48 Error: [MissingActionException] Action RoomController::room-595b21f0b2be5() could not be found.
+Exception Attributes: array (
+  'controller' => 'RoomController',
+  'action' => 'room-595b21f0b2be5',
+)
+Request URL: /shogi/room/room-595b21f0b2be5
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#2 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-07-04 14:06:47 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/Controller/RoomController.php, line 8]
+2017-07-04 14:06:47 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-595b220d4015b
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 8)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 8, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 8, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 14:26:33 Error: Fatal Error (1): Call to a member function create() on a non-object in [/var/www/html/shogi/app/Controller/RoomController.php, line 24]
+2017-07-04 14:26:33 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/s...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 14:28:10 Error: Fatal Error (1): Call to a member function create() on a non-object in [/var/www/html/shogi/app/Controller/RoomController.php, line 24]
+2017-07-04 14:28:10 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/s...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 14:28:20 Error: Fatal Error (1): Call to a member function create() on a non-object in [/var/www/html/shogi/app/Controller/RoomController.php, line 24]
+2017-07-04 14:28:20 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/s...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/s...', 24, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:16:24 Error: Fatal Error (4): syntax error, unexpected T_STRING, expecting T_FUNCTION in [/var/www/html/shogi/app/Controller/RoomController.php, line 174]
+2017-07-04 20:16:24 Error: [FatalErrorException] syntax error, unexpected T_STRING, expecting T_FUNCTION
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 174)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 174, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 174, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:18:13 Error: Fatal Error (64): Cannot use [] for reading in [/var/www/html/shogi/app/Controller/RoomController.php, line 18]
+2017-07-04 20:18:13 Error: [FatalErrorException] Cannot use [] for reading
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(64, 'Cannot use [] f...', '/var/www/html/s...', 18)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot use [] f...', '/var/www/html/s...', 18, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 64, 'Cannot use [] f...', '/var/www/html/s...', 18, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:18:38 Error: Fatal Error (1): Function name must be a string in [/var/www/html/shogi/app/Controller/RoomController.php, line 18]
+2017-07-04 20:18:38 Error: [FatalErrorException] Function name must be a string
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Function name m...', '/var/www/html/s...', 18)
+#1 [internal function]: ErrorHandler::handleError(1, 'Function name m...', '/var/www/html/s...', 18, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Function name m...', '/var/www/html/s...', 18, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:18:55 Error: Fatal Error (64): Cannot use [] for reading in [/var/www/html/shogi/app/Controller/RoomController.php, line 18]
+2017-07-04 20:18:55 Error: [FatalErrorException] Cannot use [] for reading
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(64, 'Cannot use [] f...', '/var/www/html/s...', 18)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot use [] f...', '/var/www/html/s...', 18, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 64, 'Cannot use [] f...', '/var/www/html/s...', 18, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:19:02 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/Controller/RoomController.php, line 18]
+2017-07-04 20:19:02 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 18)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 18, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 18, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:24:06 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [/var/www/html/shogi/app/Controller/RoomController.php, line 25]
+2017-07-04 20:24:06 Error: [FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 25, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 25, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:27:02 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE, expecting '(' in [/var/www/html/shogi/app/Controller/RoomController.php, line 24]
+2017-07-04 20:27:02 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE, expecting '('
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 24)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 24, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 24, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:29:15 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 28]
+2017-07-04 20:29:15 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 28)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 28, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 28, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:30:19 Error: Fatal Error (1): Call to undefined function right() in [/var/www/html/shogi/app/Controller/RoomController.php, line 27]
+2017-07-04 20:30:19 Error: [FatalErrorException] Call to undefined function right()
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/s...', 27)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/s...', 27, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/s...', 27, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 20:59:30 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(112): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 20:59:43 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(112): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:00:23 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(112): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:00:25 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(112): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:00:26 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(112): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:00:36 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(113): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:00:37 Error: [ConfigureException] No variable $config found in /var/www/html/shogi/app/Config/const.php
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Core/Configure.php(329): PhpReader->read('const')
+#1 /var/www/html/shogi/app/Config/bootstrap.php(113): Configure::load('const')
+#2 /var/www/html/shogi/lib/Cake/Core/Configure.php(98): include('/var/www/html/s...')
+#3 /var/www/html/shogi/lib/Cake/bootstrap.php(432): Configure::bootstrap(true)
+#4 /var/www/html/shogi/app/webroot/index.php(95): include('/var/www/html/s...')
+#5 {main}
+2017-07-04 21:08:53 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:08:53 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:10:59 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:10:59 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:14:17 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:14:17 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:16:07 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:16:07 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:17:03 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:17:03 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:17:09 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:17:09 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:17:20 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:17:20 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:17:34 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:17:34 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:17:50 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:17:50 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:18:05 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:18:05 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:18:30 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:18:30 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:19:32 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:19:32 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:20:00 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 16]
+2017-07-04 21:20:00 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 16)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 16, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 16, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:20:08 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:20:08 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:20:48 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:20:48 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:21:40 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:21:40 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:21:51 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:21:51 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:21:53 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:21:53 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:21:59 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:21:59 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:22:01 Error: Fatal Error (4): syntax error, unexpected '[', expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 13]
+2017-07-04 21:22:01 Error: [FatalErrorException] syntax error, unexpected '[', expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b791b3b644
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 13, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 21:49:28 Error: [MissingControllerException] Controller class KomaController could not be found.
+Exception Attributes: array (
+  'class' => 'KomaController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/koma/2.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 21:49:43 Error: [MissingControllerException] Controller class KomaController could not be found.
+Exception Attributes: array (
+  'class' => 'KomaController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/koma/2.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 21:50:44 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/1.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 21:52:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/1.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 21:53:03 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 9]
+2017-07-04 21:53:03 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-595b8c3c5d2aa
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 9)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 9, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 9, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:15:56 Error: [MissingViewException] View file "Room/makeroom.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Room/makeroom.ctp',
+)
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-07-04 23:18:37 Error: Fatal Error (4): syntax error, unexpected T_ELSE in [/var/www/html/shogi/app/Controller/RoomController.php, line 119]
+2017-07-04 23:18:37 Error: [FatalErrorException] syntax error, unexpected T_ELSE
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 119)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:19:51 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/html/shogi/app/Controller/RoomController.php, line 117]
+2017-07-04 23:19:51 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 117)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:20:16 Error: Fatal Error (4): syntax error, unexpected T_ELSE in [/var/www/html/shogi/app/Controller/RoomController.php, line 119]
+2017-07-04 23:20:16 Error: [FatalErrorException] syntax error, unexpected T_ELSE
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 119)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:21:46 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/html/shogi/app/Controller/RoomController.php, line 117]
+2017-07-04 23:21:46 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 117)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:22:00 Error: Fatal Error (4): syntax error, unexpected T_ELSE in [/var/www/html/shogi/app/Controller/RoomController.php, line 119]
+2017-07-04 23:22:00 Error: [FatalErrorException] syntax error, unexpected T_ELSE
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 119)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 119, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:22:37 Error: [MissingViewException] View file "Room/makeroom.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Room/makeroom.ctp',
+)
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-07-04 23:23:15 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/html/shogi/app/Controller/RoomController.php, line 117]
+2017-07-04 23:23:15 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 117)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 117, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:23:21 Error: [MissingViewException] View file "Room/makeroom.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Room/makeroom.ctp',
+)
+Request URL: /shogi/room/makeroom/?handicap=2
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(RoomController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-07-04 23:25:28 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 37]
+2017-07-04 23:25:28 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/makeroom/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 37)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 37, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 37, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:58:03 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 38]
+2017-07-04 23:58:03 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 38)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 38, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 38, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:58:10 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-04 23:58:39 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 42]
+2017-07-04 23:58:39 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 42)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 42, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 42, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:58:42 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/html/shogi/app/Controller/RoomController.php, line 42]
+2017-07-04 23:58:42 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 42)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 42, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 42, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-04 23:58:48 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-05 00:05:49 Error: [MissingControllerException] Controller class RoomController could not be found.
+Exception Attributes: array (
+  'class' => 'RoomController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/room/?id=room-595ba58b33d0c&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-07-05 09:40:01 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:40:01 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:40:22 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:40:22 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:40:32 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:40:32 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:40:43 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:40:43 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:40:57 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:40:57 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:41:23 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:41:23 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:41:30 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:41:30 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:41:45 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 35]
+2017-07-05 09:41:45 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 35, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:42:04 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/html/shogi/app/Controller/RoomController.php, line 44]
+2017-07-05 09:42:04 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 44)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 44, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 44, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:42:10 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/html/shogi/app/Controller/RoomController.php, line 44]
+2017-07-05 09:42:10 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 44)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 44, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 44, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 09:45:29 Error: Fatal Error (4): syntax error, unexpected '.' in [/var/www/html/shogi/app/Controller/RoomController.php, line 36]
+2017-07-05 09:45:29 Error: [FatalErrorException] syntax error, unexpected '.'
+Request URL: /shogi/room/?id=room-595baf6ee21f2&teban=gote
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 36)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 36, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 36, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 10:43:52 Error: Fatal Error (4): syntax error, unexpected T_STRING, expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 20]
+2017-07-05 10:43:52 Error: [FatalErrorException] syntax error, unexpected T_STRING, expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b92093d4aa
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 20)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 20, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 20, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 10:45:02 Error: Fatal Error (4): syntax error, unexpected T_STRING, expecting ',' or ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 19]
+2017-07-05 10:45:02 Error: [FatalErrorException] syntax error, unexpected T_STRING, expecting ',' or ';'
+Request URL: /shogi/room/?id=room-595b92093d4aa
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 19)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 19, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 19, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-05 10:56:19 Error: Fatal Error (4): syntax error, unexpected T_ELSE in [/var/www/html/shogi/app/View/Room/index.ctp, line 24]
+2017-07-05 10:56:19 Error: [FatalErrorException] syntax error, unexpected T_ELSE
+Request URL: /shogi/room/?id=room-595b92093d4aa
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 24)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 24, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 24, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-09 17:26:11 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 17]
+2017-07-09 17:26:11 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-5961e10c31b01
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-09 17:26:39 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 17]
+2017-07-09 17:26:39 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-5961e10c31b01
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-07-09 17:26:42 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/View/Room/index.ctp, line 17]
+2017-07-09 17:26:42 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/room/?id=room-5961e10c31b01
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 17, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-09-16 22:25:32 Error: [MissingControllerException] Controller class ApiController could not be found.
+Exception Attributes: array (
+  'class' => 'ApiController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/api/save/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-16 22:25:44 Error: [MissingControllerException] Controller class ApisaveController could not be found.
+Exception Attributes: array (
+  'class' => 'ApisaveController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/apisave/save/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-16 22:26:06 Error: [MissingControllerException] Controller class ApisaveController could not be found.
+Exception Attributes: array (
+  'class' => 'ApisaveController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/apisave/save/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-16 22:26:13 Error: [MissingControllerException] Controller class ApisaveController could not be found.
+Exception Attributes: array (
+  'class' => 'ApisaveController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/apisave/save/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-16 22:27:35 Error: [MissingViewException] View file "Apisave/save.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Apisave/save.ctp',
+)
+Request URL: /shogi/apisave/save/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/shogi/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ApisaveController), Object(CakeRequest))
+#4 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-09-16 22:39:37 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/shogi/app/Controller/ApisaveController.php, line 15]
+2017-09-16 22:39:37 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /shogi/apisave/save/?id=room-59bd277fd75e5
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 15)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 15, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 15, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-09-17 14:01:02 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:03:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:03:12 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:05:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:12:46 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:14:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 14:15:24 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 21:05:55 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'hash' cannot be null
+Request URL: /shogi/apisave/save/
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('INSERT INTO `sh...', Array)
+#2 /var/www/html/shogi/lib/Cake/Model/Datasource/DboSource.php(1090): DboSource->execute('INSERT INTO `sh...')
+#3 /var/www/html/shogi/lib/Cake/Model/Model.php(1940): DboSource->create(Object(AppModel), Array, Array)
+#4 /var/www/html/shogi/lib/Cake/Model/Model.php(1758): Model->_doSave(NULL, Array)
+#5 /var/www/html/shogi/app/Controller/ApisaveController.php(123): Model->save()
+#6 /var/www/html/shogi/app/Controller/ApisaveController.php(20): ApisaveController->setkoma(NULL)
+#7 [internal function]: ApisaveController->save()
+#8 /var/www/html/shogi/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(ApisaveController), Array)
+#9 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/shogi/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ApisaveController), Object(CakeRequest))
+#11 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-09-17 21:37:12 Error: [MissingControllerException] Controller class PhpMyAdmin-4.2.7-all-languagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdmin-4.2.7-all-languagesController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/phpMyAdmin-4.2.7-all-languages/
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 23:54:45 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 23:56:23 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-17 23:56:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /shogi/img/koma/0.png
+Stack Trace:
+#0 /var/www/html/shogi/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-18 00:15:40 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/html/shogi/app/Controller/ApisaveController.php, line 37]
+2017-09-18 00:15:40 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /shogi/apisave/save/?id=room-59bd277fd75e5
+Stack Trace:
+#0 /var/www/html/shogi/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/s...', 37)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/s...', 37, Array)
+#2 /var/www/html/shogi/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/s...', 37, Array)
+#3 /var/www/html/shogi/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

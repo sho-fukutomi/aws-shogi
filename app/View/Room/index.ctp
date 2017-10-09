@@ -1,5 +1,6 @@
-<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<?php echo $this->Html->script( 'jquery-3.2.1.min', array( 'inline' => false ) ); ?>
+<?php echo $this->Html->script( 'jquery-ui.min.js', array( 'inline' => false ) ); ?>
+
 
 <div style="text-align: -webkit-center">
 <!-- シェア用フォーム -->
@@ -18,13 +19,13 @@
             <?php if($value[$i] =='1' ):?>
                 <!-- ブランク -->
 
-                <th class="masu <?php echo 'masu'.$key.'-'.$i ?>"></th>
+                <td class="masu <?php echo 'masu'.$key.'-'.$i ?>"></td>
             <?php else:?>
                 <!-- 駒がある状態 -->
                 <?php if($value[$i] >14): ?>
-                    <th style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </th>
+                    <td style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </td>
                 <?php else: ?>
-                    <th style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </th>
+                    <td style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </td>
                 <?php endif;?>
             <?php endif;?>
         <?php $j++?>
@@ -53,6 +54,15 @@ $(".jijin").draggable({
         //containment: 'parent'
 
      });
+
+
+$('td').click(function(){
+    //縦
+    var row = $(this).closest('tr').index();
+    //横
+    var col = this.cellIndex;
+    console.log('Row: ' + row + ', Column: ' + col);
+});
 
 //$("#debugger").val('lkjaflkjaf')
 
