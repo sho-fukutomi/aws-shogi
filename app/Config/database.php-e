@@ -49,7 +49,11 @@
  * database. Uses database default not specified.
  *
  * sslmode =>
+<<<<<<< HEAD
  * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the 
+=======
+ * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the
+>>>>>>> 1c345602684dd644d8f8031c5a25a9ae1f0051fa
  * connection. The default value is 'allow'.
  *
  * unix_socket =>
@@ -74,7 +78,11 @@ class DATABASE_CONFIG {
 		'password' => 'tomitomi',
 		'database' => 'shogi',
 		'prefix' => '',
+<<<<<<< HEAD
 		'encoding' => 'utf8',
+=======
+		//'encoding' => 'utf8',
+>>>>>>> 1c345602684dd644d8f8031c5a25a9ae1f0051fa
 	);
 
 	public $test = array(
@@ -85,6 +93,10 @@ class DATABASE_CONFIG {
 		'password' => 'tomitomi',
 		'database' => 'shogi',
 		'prefix' => '',
+<<<<<<< HEAD
 		'encoding' => 'utf8',
+=======
+		//'encoding' => 'utf8',
+>>>>>>> 1c345602684dd644d8f8031c5a25a9ae1f0051fa
 	);
 }
