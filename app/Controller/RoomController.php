@@ -9,8 +9,12 @@ class RoomController extends AppController {
 
         //DBから、駒状況取得
         $situations = $this->historys->find('first',array(
-            'conditions' => array('hash' => $pagedata['id']))
-        );
+            'conditions' => array('hash' => $pagedata['id']),
+            'order' =>  array('id' => 'DESC')
+        ));
+
+
+debug($situations);
 
         //駒の名前パース
         foreach ($komaname as $key => $value) {
