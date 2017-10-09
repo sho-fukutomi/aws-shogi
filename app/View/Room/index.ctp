@@ -62,6 +62,8 @@ $('td').click(function(){
     //横
     var col = this.cellIndex;
     console.log('Row: ' + row + ', Column: ' + col);
+    console.log("test test test");
+
 });
 
 //$("#debugger").val('lkjaflkjaf')
