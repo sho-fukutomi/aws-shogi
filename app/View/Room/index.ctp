@@ -51,7 +51,8 @@ $(".jijin").draggable({
 
             var row = $(this).closest('tr').index();
             //横
-            var col = this.cellIndex;
+            var col = $(this).closest('td').index();
+
             $("#debugger").val($('Row: ' + row + ', Column: ' + col));
 
 
