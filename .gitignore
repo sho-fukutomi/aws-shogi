@@ -4,3 +4,4 @@ config/database.php
 app/Config/database.php
 app/webroot/myadminabscsooijoadfjlakjf
 app/tmp/cache/
+app/tmp/logs/
