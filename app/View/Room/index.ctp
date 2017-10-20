@@ -10,7 +10,7 @@
 </form>
 
 <!-- 将棋盤 -->
-<table style="width:700px">
+<table style="width:700px" id="shougiban">
     <?php $j = 1?>
     <?php foreach ($koma as $key => $value): ?>
     <tr style="height:70px">
@@ -49,6 +49,8 @@ $(".jijin").draggable({
         stop: function(event, ui) {
             $("#debugger").val('lkjaflkjaf');
             console.log(this);
+            console.log($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
+
 
     	}
         //containment: 'parent'
