@@ -47,7 +47,12 @@ $(".jijin").draggable({
         snap        : ".masu",
         snapMode    : "inner",
         stop: function(event, ui) {
-            $("#debugger").val($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
+            //$("#debugger").val($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
+
+            var row = $(this).closest('tr').index();
+            //横
+            var col = this.cellIndex;
+            $("#debugger").val($('Row: ' + row + ', Column: ' + col));
 
 
     	}
