@@ -50,31 +50,17 @@
 $(".jijin").draggable({
         snap        : ".masu",
         snapMode    : "inner",
+        start : function (event , ui){
+            console.log("start event start" );
+            console.log(event , ui);
+        } 
         stop: function(event, ui) {
-            //$("#debugger").val($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
-
             var row = $(this).closest('tr').index();
-            //横
             var col = $(this).closest('td').index();
-
-            $("#debugger").val(row);
-            $("#debugger2").val(col);
-
-
+            $("#debugger").val(row); // 動く前のコマの位置
+            $("#debugger2").val(col);// 動く前のコマの位置
     	}
-        //containment: 'parent'
-
      });
-
-
-$('td').click(function(){
-    //縦
-    var row = $(this).closest('tr').index();
-    //横
-    var col = this.cellIndex;
-    console.log('Row: ' + row + ', Column: ' + col);
-    console.log("test test test");
-
 });
 
 //$("#debugger").val('lkjaflkjaf')
