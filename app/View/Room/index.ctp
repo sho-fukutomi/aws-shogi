@@ -10,7 +10,7 @@
 </form>
 
 <!-- 将棋盤 -->
-<table style="width:700px">
+<table style="width:700px" id="shougiban">
     <?php $j = 1?>
     <?php foreach ($koma as $key => $value): ?>
     <tr style="height:70px">
@@ -40,28 +40,26 @@
 
 <form>
     <input id="debugger" readonly> </input>
+    <input id="debugger2" readonly> </input>
+    <input id="debugger3" readonly> </input>
+    <input id="debugger4" readonly> </input>
+
 </form>
 <script>
 
 $(".jijin").draggable({
-        snap        : ".masu",
-        snapMode    : "inner",
-        stop: function(event, ui) {
-            $("#debugger").val('lkjaflkjaf');
-            console.log(this);
-
-    	}
-        //containment: 'parent'
-
-     });
-
-
-$('td').click(function(){
-    //縦
-    var row = $(this).closest('tr').index();
-    //横
-    var col = this.cellIndex;
-    console.log('Row: ' + row + ', Column: ' + col);
+    snap        : ".masu",
+    snapMode    : "inner",
+    start : function (event , ui){
+        console.log("start event start" );
+        console.log(event , ui);
+    } ,
+    stop: function(event, ui) {
+        var row = $(this).closest('tr').index();
+        var col = $(this).closest('td').index();
+        $("#debugger").val(row); // 動く前のコマの位置
+        $("#debugger2").val(col);// 動く前のコマの位置
+    }
 });
 
 //$("#debugger").val('lkjaflkjaf')
