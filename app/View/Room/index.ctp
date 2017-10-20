@@ -53,7 +53,7 @@ $(".jijin").draggable({
         start : function (event , ui){
             console.log("start event start" );
             console.log(event , ui);
-        } 
+        } ,
         stop: function(event, ui) {
             var row = $(this).closest('tr').index();
             var col = $(this).closest('td').index();
