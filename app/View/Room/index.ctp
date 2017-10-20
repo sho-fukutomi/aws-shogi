@@ -47,9 +47,7 @@ $(".jijin").draggable({
         snap        : ".masu",
         snapMode    : "inner",
         stop: function(event, ui) {
-            $("#debugger").val('lkjaflkjaf');
-            console.log(this);
-            console.log($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
+            $("#debugger").val($('#shougiban').offset().top, $('#shougiban').get(0).offsetTop, $('#shougiban').position().top, '#1');
 
 
     	}
