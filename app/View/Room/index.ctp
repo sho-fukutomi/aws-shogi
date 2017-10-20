@@ -40,6 +40,10 @@
 
 <form>
     <input id="debugger" readonly> </input>
+    <input id="debugger2" readonly> </input>
+    <input id="debugger3" readonly> </input>
+    <input id="debugger4" readonly> </input>
+
 </form>
 <script>
 
@@ -53,7 +57,8 @@ $(".jijin").draggable({
             //横
             var col = $(this).closest('td').index();
 
-            $("#debugger").val($('Row: ' + row + ', Column: ' + col));
+            $("#debugger").val(row);
+            $("#debugger2").val(col);
 
 
     	}
