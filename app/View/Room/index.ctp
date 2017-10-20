@@ -48,19 +48,18 @@
 <script>
 
 $(".jijin").draggable({
-        snap        : ".masu",
-        snapMode    : "inner",
-        start : function (event , ui){
-            console.log("start event start" );
-            console.log(event , ui);
-        } ,
-        stop: function(event, ui) {
-            var row = $(this).closest('tr').index();
-            var col = $(this).closest('td').index();
-            $("#debugger").val(row); // 動く前のコマの位置
-            $("#debugger2").val(col);// 動く前のコマの位置
-    	}
-     });
+    snap        : ".masu",
+    snapMode    : "inner",
+    start : function (event , ui){
+        console.log("start event start" );
+        console.log(event , ui);
+    } ,
+    stop: function(event, ui) {
+        var row = $(this).closest('tr').index();
+        var col = $(this).closest('td').index();
+        $("#debugger").val(row); // 動く前のコマの位置
+        $("#debugger2").val(col);// 動く前のコマの位置
+    }
 });
 
 //$("#debugger").val('lkjaflkjaf')
