@@ -1,7 +1,7 @@
 <?php // echo $this->Html->script( 'jquery-3.2.1.min', array( 'inline' => false ) ); ?>
 <?php // echo $this->Html->script( 'jquery-ui.min.js', array( 'inline' => false ) ); ?>
-<?php echo '<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>' ?>
-<?php echo '<script type="text/javascript" src="/js/jquery-ui.min.js"></script>' ?>
+<?php echo '<script type="text/javascript" src="/shogi/js/jquery-3.2.1.min.js"></script>' ?>
+<?php echo '<script type="text/javascript" src="/shogi/js/jquery-ui.min.js"></script>' ?>
 
 
 <div style="text-align: -webkit-center">
