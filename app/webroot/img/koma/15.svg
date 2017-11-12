@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="228px" height="270px" viewBox="0 0 228 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>tokin</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M84,0 L134.4,15.2594578 L168,195.186722 L0,195.186722 L33.6,15.2594578 L84,0 Z M0,195.186722 L168,195.186722 L168,210 L0,210 L0,195.186722 Z" id="path-1"></path>
+        <filter x="-42.6%" y="-33.1%" width="185.1%" height="168.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 1   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter2"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter2" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="11.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter2" in2="SourceAlpha" operator="out" result="shadowBlurOuter2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M110.096,61.371 C110.096,57.105 104.961,51.417 98.167,50.943 L97.693,50.943 C96.982,50.943 96.666,51.101 96.666,51.575 C96.666,51.812 96.824,52.207 97.14,52.681 C97.456,53.076 97.535,53.392 97.535,53.708 C97.535,54.656 96.429,55.209 94.454,55.999 C89.714,57.737 84.974,59.396 80.55,61.292 C80.155,60.186 79.997,58.843 79.997,57.263 C79.997,55.051 80.313,52.286 80.629,49.047 C81.182,43.833 83.236,44.544 83.236,42.095 L83.236,41.858 C83.078,37.671 77.39,34.59 71.702,34.59 C70.122,34.59 68.542,34.827 67.041,35.38 C66.093,35.696 65.698,35.933 65.698,36.249 C65.698,36.565 66.093,36.881 66.883,37.276 C69.016,38.461 69.727,41.384 69.727,46.282 L69.727,50.469 C69.727,55.92 70.28,60.818 76.205,63.346 C66.093,68.244 58.43,74.406 58.43,83.333 C58.43,84.281 58.509,85.229 58.667,86.256 C60.405,96.21 71.781,100.713 89.161,100.713 C92.637,100.713 96.429,100.555 100.379,100.16 C105.198,99.844 109.385,97.316 109.385,93.287 C109.385,92.655 109.306,91.944 109.069,91.233 C108.2,88.389 105.593,86.809 101.88,86.809 C100.853,86.809 99.747,86.967 98.562,87.204 C93.348,88.389 87.028,89.179 81.261,89.179 C72.176,89.179 64.276,87.204 63.328,81.516 C63.249,81.121 63.249,80.726 63.249,80.331 C63.249,72.51 76.995,66.98 98.009,65.953 C99.826,65.874 101.248,65.874 102.433,65.874 L103.46,65.874 C106.225,65.874 107.41,65.795 108.753,64.531 C109.622,63.662 110.096,62.556 110.096,61.371 Z M120.05,179.212 C120.05,179.765 119.734,180.16 118.786,180.16 L59.457,180.16 C56.376,180.16 53.295,180.318 51.715,180.792 C51.083,180.95 50.372,180.713 50.056,180.081 C49.74,179.449 49.187,177.948 48.95,177.079 C48.871,176.921 48.871,176.763 48.871,176.684 C48.871,176.368 49.029,176.21 49.266,176.21 C49.503,176.21 49.74,176.289 50.056,176.368 C52.426,177.079 56.534,177.395 59.457,177.395 L76.047,177.395 C76.126,172.181 76.126,166.414 76.126,160.726 L76.126,153.695 L62.38,153.695 C59.299,153.695 56.218,153.853 54.638,154.327 C54.006,154.485 53.295,154.248 52.979,153.616 C52.663,152.984 52.11,151.404 51.873,150.535 C51.794,150.377 51.794,150.219 51.794,150.14 C51.794,149.824 51.952,149.745 52.268,149.745 C52.426,149.745 52.663,149.745 52.979,149.824 C55.349,150.535 59.457,150.851 62.38,150.851 L76.126,150.851 C76.126,147.375 76.126,144.057 76.047,141.055 L75.02,141.055 C72.334,141.055 69.411,141.213 67.831,141.687 C67.199,141.845 66.488,141.608 66.172,140.976 C66.093,140.818 66.014,140.581 65.856,140.265 C61.195,142.556 55.981,144.136 50.135,145.242 L49.819,145.242 C49.266,145.242 48.95,144.926 48.95,144.531 C48.95,144.215 49.187,143.82 49.582,143.583 C62.538,134.972 70.754,122.885 73.519,114.353 C73.835,113.484 73.677,113.089 74.388,113.089 C74.546,113.089 74.862,113.089 75.178,113.168 C79.76,113.721 85.764,114.353 90.346,115.222 C91.215,115.38 91.768,116.012 91.768,116.723 C91.768,117.276 91.294,117.987 90.109,118.224 C89.556,118.382 89.082,118.461 88.766,118.54 C96.192,125.255 105.04,128.494 118.865,129.363 C119.655,129.442 120.05,129.916 120.05,130.39 C120.05,130.943 119.734,131.496 119.102,131.812 C116.179,133.55 115.468,135.209 115.073,143.188 C114.994,143.978 114.52,144.215 114.046,144.215 C113.809,144.215 113.572,144.215 113.335,144.136 C100.616,140.739 92.084,133.076 86.554,120.673 C82.288,128.178 76.837,133.787 70.043,137.974 C71.939,138.211 73.914,138.29 75.573,138.29 L82.525,138.29 C83.315,138.29 83.789,138.132 84.342,137.579 C85.922,135.92 87.976,133.945 89.635,132.128 C89.951,131.812 90.188,131.654 90.504,131.654 C90.82,131.654 91.215,131.812 91.531,132.049 C93.98,133.945 96.745,136.157 99.589,138.922 C99.984,139.238 100.221,139.712 100.221,140.107 C100.221,140.66 99.826,141.055 98.878,141.055 L89.003,141.055 C88.924,143.978 88.924,147.296 88.924,150.851 L96.745,150.851 C97.535,150.851 98.088,150.772 98.562,150.14 C100.221,148.323 102.275,146.032 104.013,144.215 C104.25,143.978 104.566,143.82 104.961,143.82 C105.277,143.82 105.672,143.978 105.988,144.215 C108.437,146.032 111.755,148.955 114.678,151.483 C114.994,151.799 115.231,152.194 115.231,152.668 C115.231,153.221 114.836,153.695 113.967,153.695 L88.924,153.695 C88.924,161.516 88.924,169.969 89.003,177.395 L100.695,177.395 C101.564,177.395 102.038,177.158 102.512,176.684 C104.329,174.472 106.62,171.786 108.437,169.574 C108.674,169.337 108.99,169.179 109.306,169.179 C109.622,169.179 110.017,169.337 110.333,169.574 C113.493,171.944 116.495,174.709 119.497,177.948 C119.813,178.264 120.05,178.817 120.05,179.212 Z M73.124,167.994 C73.124,172.655 69.964,175.262 66.804,175.262 C64.513,175.262 62.222,173.84 61.353,170.838 C60.01,166.493 61.827,161.911 57.324,157.566 C56.613,156.855 56.771,155.828 57.798,155.828 C57.877,155.828 58.035,155.907 58.193,155.907 C65.856,157.092 72.65,160.41 73.124,167.204 L73.124,167.994 Z M111.992,160.647 C111.992,161.358 111.36,162.069 110.175,162.306 C108.674,162.543 108.042,162.622 107.489,163.412 C104.487,167.678 98.246,173.366 91.61,175.973 C91.452,176.052 91.294,176.052 91.136,176.052 C90.583,176.052 90.188,175.815 90.188,175.341 C90.188,175.183 90.267,175.025 90.346,174.867 C93.348,169.337 95.481,162.148 96.034,156.776 C96.192,155.828 96.271,155.433 96.824,155.433 C96.982,155.433 97.14,155.433 97.377,155.512 C101.801,156.539 106.304,157.645 110.491,159.067 C111.518,159.383 111.992,160.015 111.992,160.647 Z" id="path-4"></path>
+        <filter x="-189.0%" y="-92.0%" width="477.9%" height="283.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter4"></feOffset>
+            <feGaussianBlur stdDeviation="22.5" in="shadowOffsetOuter4" result="shadowBlurOuter4"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter4" result="shadowMatrixOuter4"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter4"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="koma-vecter" transform="translate(29.000000, 20.000000)">
+            <g id="tokin" transform="translate(1.000000, 8.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Polygon" transform="translate(84.000000, 105.000000) scale(-1, 1) translate(-84.000000, -105.000000) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use stroke="#00FF64" stroke-width="3" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="nari-fu" mask="url(#mask-2)">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                    <use fill="#320D08" fill-rule="evenodd" xlink:href="#path-4"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
