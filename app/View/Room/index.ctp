@@ -3,7 +3,6 @@
 <?php echo '<script type="text/javascript" src="/shogi/js/jquery-3.2.1.min.js"></script>' ?>
 <?php echo '<script type="text/javascript" src="/shogi/js/jquery-ui.min.js"></script>' ?>
 
-
 <div style="text-align: -webkit-center">
 <!-- シェア用フォーム -->
 <h3><?php echo $share['jpn']?><h3>
@@ -12,22 +11,31 @@
 </form>
 
 <!-- 将棋盤 -->
-<table style="width:700px" id="shougiban">
+<table id="shougiban width="0">
     <?php $j = 1?>
     <?php foreach ($koma as $key => $value): ?>
-    <tr style="height:70px">
+    <tr>
         <?php for ($i = 9; $i>0; $i-- ): ?>
             <?php //echo debug($key)?>
             <?php if($value[$i] =='1' ):?>
                 <!-- ブランク -->
 
-                <td class="masu <?php echo 'masu'.$key.'-'.$i ?>"></td>
+                <td class="masu <?php echo 'masu'.$key.'-'.$i ?> width="0"></td>
             <?php else:?>
                 <!-- 駒がある状態 -->
                 <?php if($value[$i] >14): ?>
-                    <td style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </td>
+                    <td style="text-align:-webkit-center">
+                        <img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0">
+                        <!-- <svg class="icon-logo">
+                            <use xlink:href="#koma1"/>
+                        </svg> -->
+                    </td>
                 <?php else: ?>
-                    <td style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.png" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>"> </td>
+
+                    <td style="text-align:-webkit-center"><img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0"> </td>
+                    <!-- <svg class="icon-logo">
+                        <use xlink:href="#koma1"/>
+                    </svg> -->
                 <?php endif;?>
             <?php endif;?>
         <?php $j++?>
@@ -64,8 +72,42 @@ $(".jijin").draggable({
     }
 });
 
+
+var timer = false;
+$(window).resize(function() {
+    hanResize();
+});
+$().ready(function(){
+    hanResize();
+});
+
+function hanResize() {
+
+
+        if (timer !== false) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(function() {
+            console.log($(window).width());
+            console.log($(window).height());
+            var minWidth = $(window).innerWidth()*0.9;
+            var minHeight = window.innerHeight * 0.8;
+            if(minWidth < minHeight){
+                minHeight = minWidth;
+            }else{
+                minWidth = minHeight;
+            }
+
+
+            $('#shougiban').width(minWidth).height(minHeight);
+            $('.masu').width(minWidth / 10).height(minHeight / 10);
+
+
+
+            // 何らかの処理
+        }, 200);
+    }
+
 //$("#debugger").val('lkjaflkjaf')
-
-
 
 </script>
