@@ -14,7 +14,7 @@ class RoomController extends AppController {
         ));
 
 
-debug($situations);
+//debug($situations);
 
         //駒の名前パース
         foreach ($komaname as $key => $value) {
