@@ -57,70 +57,65 @@
 <script>
 
 
-// 画面リサイズに盤面をリサイズ
-$(window).resize(function() {
-    hanResize();
-});
+    // 画面リサイズに盤面をリサイズ
+    $(window).resize(function() {
+        hanResize();
+    });
 
-// 起動時に盤面をリサイズ
-$().ready(function(){
-    hanResize();
-});
+    // 起動時に盤面をリサイズ
+    $().ready(function(){
+        hanResize();
+    });
 
 
-//リサイズ用処理
-var timer = false;
-function hanResize() {
-    if (timer !== false) {
-        clearTimeout(timer);
-    }
-    timer = setTimeout(function() {
-        console.log(window.innerWidth);
-        console.log(window.innerHeight);
-        var minWidth = (window.innerWidth-30)*0.9;
-        var minHeight = (window.innerHeight -50) * 0.8;
-        if(minWidth < minHeight){
-            minHeight = minWidth;
-        }else{
-            minWidth = minHeight;
+    //リサイズ用処理
+    var timer = false;
+    function hanResize() {
+        if (timer !== false) {
+            clearTimeout(timer);
         }
-        $('#shougiban').width(minWidth).height(minHeight);
-        $('.masu').width(minWidth/10).height(minHeight / 10);
-    }, 200);
-}
+        timer = setTimeout(function() {
+            console.log(window.innerWidth);
+            console.log(window.innerHeight);
+            var minWidth = (window.innerWidth-30)*0.9;
+            var minHeight = (window.innerHeight -50) * 0.8;
+            if(minWidth < minHeight){
+                minHeight = minWidth;
+            }else{
+                minWidth = minHeight;
+            }
+            $('#shougiban').width(minWidth).height(minHeight);
+            $('.masu').width(minWidth/10).height(minHeight / 10);
+        }, 200);
+    }
 
+    $('td').click(function(){
+        //縦
+        var row = $(this).closest('tr').index() + 1;
+        //横
+        var col = 9 - this.cellIndex;
+        console.log('Row: ' + row + ', Column: ' + col);
+        $("#debugger").val('Row: ' + row + ', Column: ' + col);
 
+    });
 
-$('td').click(function(){
-    //縦
-    var row = $(this).closest('tr').index() + 1;
-    //横
-    var col = 9 - this.cellIndex;
-    console.log('Row: ' + row + ', Column: ' + col);
-    $("#debugger").val('Row: ' + row + ', Column: ' + col);
+    $('.jijin').on('click', function(){
+            var classall =  $(this).attr("class");
+            var class_Array = classall.split(" ")
+            var alt =  $(this).attr("alt");
+            // alert(id);
+            showYouCanMove(alt,class_Array[2]);
+    });
 
-});
+    function showYouCanMove(alt,address){
+        console.log(alt);
+        console.log(address);
+        $("#debugger2").val(address);
+        $("#debugger3").val(address.slice(4));
+        var clickedkoma = ('#'+ address.slice(4));
+        $("div").removeClass("youcango");
+        $(clickedkoma).addClass("youcango")
 
-$('.jijin').on('click', function(){
-        var classall =  $(this).attr("class");
-        var class_Array = classall.split(" ")
-        var alt =  $(this).attr("alt");
-        // alert(id);
-        showYouCanMove(alt,class_Array[2]);
-});
-
-function showYouCanMove(alt,address){
-    console.log(alt);
-    console.log(address);
-    $("#debugger2").val(address);
-    $("#debugger3").val(address.slice(4));
-    var clickedkoma = ('#'+ address.slice(4));
-    $("div").removeClass("youcango");
-    $(clickedkoma).addClass("youcango")
-
-}
-
-
-
+    }
 
 </script>
