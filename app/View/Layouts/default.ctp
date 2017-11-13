@@ -29,8 +29,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		//echo $this->Html->css('/css/cake.generic');
 
-echo '<link rel="stylesheet" type="text/css" href="/shogi/css/cake.generic.css">';
-echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/5.0.0/sanitize.min.css">';
+echo '<link rel="stylesheet" type="text/css" href="/shogi/css/cake.css?'. rand() .'">';
+//echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/5.0.0/sanitize.min.css">';
 
 
 		// echo $this->fetch('meta');
@@ -56,6 +56,6 @@ echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/
 			</p>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php // echo $this->element('sql_dump'); ?>
 </body>
 </html>
