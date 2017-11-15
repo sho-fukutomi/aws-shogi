@@ -67,6 +67,7 @@ class RoomController extends AppController {
         $this->set('share',$share);
         $this->set('koma',$koma);
         $this->set('komaarray',$komaarray);
+        $this->set('roomid',$pagedata['id']);
 	}
     public function makeroom() {
 
