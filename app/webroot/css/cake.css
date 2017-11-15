@@ -766,7 +766,14 @@ pre {
 }
 .youcango{
     box-shadow: 0px 0px 8px 4px rgba(34,255,112,1);
-    background: #0C5;
+    background: #8f8;
+    margin: 1px;
+    height: 100%;
+    width: 100%;
+}
+.yourplace{
+    box-shadow: 0px 0px 8px 4px rgba(100,255,100,1);
+    background: #0c5;
     margin: 1px;
     height: 100%;
     width: 100%;

@@ -56,7 +56,7 @@
 
 <script>
 
-
+    //----------------------------------------------------------リサイズ系-----------------------
     // 画面リサイズに盤面をリサイズ
     $(window).resize(function() {
         hanResize();
@@ -77,8 +77,11 @@
         timer = setTimeout(function() {
             console.log(window.innerWidth);
             console.log(window.innerHeight);
-            var minWidth = (window.innerWidth-30)*0.9;
-            var minHeight = (window.innerHeight -50) * 0.8;
+            var minWidth = (window.innerWidth);
+            var minHeight = (window.innerHeight) *0.9;
+
+            // var minWidth = (window.innerWidth-30)*0.9;
+            // var minHeight = (window.innerHeight -50) * 0.8;
             if(minWidth < minHeight){
                 minHeight = minWidth;
             }else{
@@ -89,6 +92,9 @@
         }, 200);
     }
 
+
+    //----------------------------------------------------------将棋系-----------------------
+
     $('td').click(function(){
         //縦
         var row = $(this).closest('tr').index() + 1;
@@ -97,25 +103,328 @@
         console.log('Row: ' + row + ', Column: ' + col);
         $("#debugger").val('Row: ' + row + ', Column: ' + col);
 
+        if($(this).children('div').hasClass('youcango')){
+            var arrayData = {};
+            var class_Array = $(".yourplace").children().attr('class').split(" ")
+
+            var addto = String(row)+'-'+String(col);
+            var fromadd = class_Array[2].slice(4);
+
+            arrayData['id'] = "<?php echo $roomid ?>";
+            arrayData[fromadd] = 'brank'
+            arrayData[addto] = $(".yourplace").children().attr('alt');
+
+            $('.yourplace').appendTo($(this));
+            $("div").removeClass("youcango");
+            $("div").removeClass("yourplace");
+            $.post(
+                "../api_save/save",
+                arrayData,
+                function(data){
+                    console.log(data); //結果をアラートで表示
+                }
+            );
+
+        }
+
+
     });
 
+    //----------自駒クリック時-----------
     $('.jijin').on('click', function(){
             var classall =  $(this).attr("class");
             var class_Array = classall.split(" ")
             var alt =  $(this).attr("alt");
-            // alert(id);
-            showYouCanMove(alt,class_Array[2]);
+            showYouCanMove(alt,class_Array[2]);//駒が動けるところを表示するまとめ関数
     });
+    //----------動けるとこクリック時-----------
+
+
 
     function showYouCanMove(alt,address){
-        console.log(alt);
-        console.log(address);
-        $("#debugger2").val(address);
-        $("#debugger3").val(address.slice(4));
+        var tate = Number(address.slice(4,5));
+        var yoko = Number(address.slice(6,7));
         var clickedkoma = ('#'+ address.slice(4));
         $("div").removeClass("youcango");
-        $(clickedkoma).addClass("youcango")
+        $("div").removeClass("yourplace");
+        $(clickedkoma).addClass("yourplace")
+        var array_address = new Array();
+        var array_address_straight = new Array();
+
+        switch (alt) {
+            case "王":
+            case "玉":
+                array_address.push([tate-1,yoko-1]);
+                array_address.push([tate-1,yoko]);
+                array_address.push([tate-1,yoko+1]);
+                array_address.push([tate,yoko-1]);
+                array_address.push([tate,yoko+1]);
+                array_address.push([tate+1,yoko-1]);
+                array_address.push([tate+1,yoko]);
+                array_address.push([tate+1,yoko+1]);
+                break;
+            case "金":
+            case "成銀":
+            case "成桂":
+            case "成香":
+            case "と金":
+                array_address.push([tate-1,yoko-1]);
+                array_address.push([tate-1,yoko]);
+                array_address.push([tate-1,yoko+1]);
+                array_address.push([tate,yoko-1]);
+                array_address.push([tate,yoko+1]);
+                array_address.push([tate+1,yoko]);
+                break;
+            case "銀":
+                array_address.push([tate-1,yoko-1]);
+                array_address.push([tate-1,yoko]);
+                array_address.push([tate-1,yoko+1]);
+                array_address.push([tate+1,yoko-1]);
+                array_address.push([tate+1,yoko+1]);
+                break;
+            case "桂馬":
+                array_address.push([tate-2,yoko-1]);
+                array_address.push([tate-2,yoko+1]);
+
+                break;
+            case "歩":
+                array_address.push([tate-1,yoko]);
+                break;
+
+            case "香車":
+                array_address_straight.push(Array());
+                array_address_straight[0].push([tate-1,yoko]);
+                array_address_straight[0].push([tate-2,yoko]);
+                array_address_straight[0].push([tate-3,yoko]);
+                array_address_straight[0].push([tate-4,yoko]);
+                array_address_straight[0].push([tate-5,yoko]);
+                array_address_straight[0].push([tate-6,yoko]);
+                array_address_straight[0].push([tate-7,yoko]);
+                array_address_straight[0].push([tate-8,yoko]);
+                break;
+            case "飛車":
+                array_address_straight.push(Array());
+                array_address_straight[0].push([tate-1,yoko]);
+                array_address_straight[0].push([tate-2,yoko]);
+                array_address_straight[0].push([tate-3,yoko]);
+                array_address_straight[0].push([tate-4,yoko]);
+                array_address_straight[0].push([tate-5,yoko]);
+                array_address_straight[0].push([tate-6,yoko]);
+                array_address_straight[0].push([tate-7,yoko]);
+                array_address_straight[0].push([tate-8,yoko]);
+                array_address_straight.push(Array());
+                array_address_straight[1].push([tate+1,yoko]);
+                array_address_straight[1].push([tate+2,yoko]);
+                array_address_straight[1].push([tate+3,yoko]);
+                array_address_straight[1].push([tate+4,yoko]);
+                array_address_straight[1].push([tate+5,yoko]);
+                array_address_straight[1].push([tate+6,yoko]);
+                array_address_straight[1].push([tate+7,yoko]);
+                array_address_straight[1].push([tate+8,yoko]);
+                array_address_straight.push(Array());
+                array_address_straight[2].push([tate,yoko-1]);
+                array_address_straight[2].push([tate,yoko-2]);
+                array_address_straight[2].push([tate,yoko-3]);
+                array_address_straight[2].push([tate,yoko-4]);
+                array_address_straight[2].push([tate,yoko-5]);
+                array_address_straight[2].push([tate,yoko-6]);
+                array_address_straight[2].push([tate,yoko-7]);
+                array_address_straight[2].push([tate,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[3].push([tate,yoko+1]);
+                array_address_straight[3].push([tate,yoko+2]);
+                array_address_straight[3].push([tate,yoko+3]);
+                array_address_straight[3].push([tate,yoko+4]);
+                array_address_straight[3].push([tate,yoko+5]);
+                array_address_straight[3].push([tate,yoko+6]);
+                array_address_straight[3].push([tate,yoko+7]);
+                array_address_straight[3].push([tate,yoko+8]);
+                break;
+            case "龍":
+                array_address_straight.push(Array());
+                array_address_straight[0].push([tate-1,yoko]);
+                array_address_straight[0].push([tate-2,yoko]);
+                array_address_straight[0].push([tate-3,yoko]);
+                array_address_straight[0].push([tate-4,yoko]);
+                array_address_straight[0].push([tate-5,yoko]);
+                array_address_straight[0].push([tate-6,yoko]);
+                array_address_straight[0].push([tate-7,yoko]);
+                array_address_straight[0].push([tate-8,yoko]);
+                array_address_straight.push(Array());
+                array_address_straight[1].push([tate+1,yoko]);
+                array_address_straight[1].push([tate+2,yoko]);
+                array_address_straight[1].push([tate+3,yoko]);
+                array_address_straight[1].push([tate+4,yoko]);
+                array_address_straight[1].push([tate+5,yoko]);
+                array_address_straight[1].push([tate+6,yoko]);
+                array_address_straight[1].push([tate+7,yoko]);
+                array_address_straight[1].push([tate+8,yoko]);
+                array_address_straight.push(Array());
+                array_address_straight[2].push([tate,yoko-1]);
+                array_address_straight[2].push([tate,yoko-2]);
+                array_address_straight[2].push([tate,yoko-3]);
+                array_address_straight[2].push([tate,yoko-4]);
+                array_address_straight[2].push([tate,yoko-5]);
+                array_address_straight[2].push([tate,yoko-6]);
+                array_address_straight[2].push([tate,yoko-7]);
+                array_address_straight[2].push([tate,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[3].push([tate,yoko+1]);
+                array_address_straight[3].push([tate,yoko+2]);
+                array_address_straight[3].push([tate,yoko+3]);
+                array_address_straight[3].push([tate,yoko+4]);
+                array_address_straight[3].push([tate,yoko+5]);
+                array_address_straight[3].push([tate,yoko+6]);
+                array_address_straight[3].push([tate,yoko+7]);
+                array_address_straight[3].push([tate,yoko+8]);
+                array_address.push([tate-1,yoko-1]);
+                array_address.push([tate+1,yoko-1]);
+                array_address.push([tate-1,yoko+1]);
+                array_address.push([tate+1,yoko+1]);
+
+                break;
+            case "角":
+                array_address_straight.push(Array());
+                array_address_straight[0].push([tate-1,yoko-1]);
+                array_address_straight[0].push([tate-2,yoko-2]);
+                array_address_straight[0].push([tate-3,yoko-3]);
+                array_address_straight[0].push([tate-4,yoko-4]);
+                array_address_straight[0].push([tate-5,yoko-5]);
+                array_address_straight[0].push([tate-6,yoko-6]);
+                array_address_straight[0].push([tate-7,yoko-7]);
+                array_address_straight[0].push([tate-8,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[1].push([tate+1,yoko+1]);
+                array_address_straight[1].push([tate+2,yoko+2]);
+                array_address_straight[1].push([tate+3,yoko+3]);
+                array_address_straight[1].push([tate+4,yoko+4]);
+                array_address_straight[1].push([tate+5,yoko+5]);
+                array_address_straight[1].push([tate+6,yoko+6]);
+                array_address_straight[1].push([tate+7,yoko+7]);
+                array_address_straight[1].push([tate+8,yoko+8]);
+                array_address_straight.push(Array());
+                array_address_straight[2].push([tate+1,yoko-1]);
+                array_address_straight[2].push([tate+2,yoko-2]);
+                array_address_straight[2].push([tate+3,yoko-3]);
+                array_address_straight[2].push([tate+4,yoko-4]);
+                array_address_straight[2].push([tate+5,yoko-5]);
+                array_address_straight[2].push([tate+6,yoko-6]);
+                array_address_straight[2].push([tate+7,yoko-7]);
+                array_address_straight[2].push([tate+8,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[3].push([tate-1,yoko+1]);
+                array_address_straight[3].push([tate-2,yoko+2]);
+                array_address_straight[3].push([tate-3,yoko+3]);
+                array_address_straight[3].push([tate-4,yoko+4]);
+                array_address_straight[3].push([tate-5,yoko+5]);
+                array_address_straight[3].push([tate-6,yoko+6]);
+                array_address_straight[3].push([tate-7,yoko+7]);
+                array_address_straight[3].push([tate-8,yoko+8]);
+                break;
+            case "馬":
+                array_address_straight.push(Array());
+                array_address_straight[0].push([tate-1,yoko-1]);
+                array_address_straight[0].push([tate-2,yoko-2]);
+                array_address_straight[0].push([tate-3,yoko-3]);
+                array_address_straight[0].push([tate-4,yoko-4]);
+                array_address_straight[0].push([tate-5,yoko-5]);
+                array_address_straight[0].push([tate-6,yoko-6]);
+                array_address_straight[0].push([tate-7,yoko-7]);
+                array_address_straight[0].push([tate-8,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[1].push([tate+1,yoko+1]);
+                array_address_straight[1].push([tate+2,yoko+2]);
+                array_address_straight[1].push([tate+3,yoko+3]);
+                array_address_straight[1].push([tate+4,yoko+4]);
+                array_address_straight[1].push([tate+5,yoko+5]);
+                array_address_straight[1].push([tate+6,yoko+6]);
+                array_address_straight[1].push([tate+7,yoko+7]);
+                array_address_straight[1].push([tate+8,yoko+8]);
+                array_address_straight.push(Array());
+                array_address_straight[2].push([tate+1,yoko-1]);
+                array_address_straight[2].push([tate+2,yoko-2]);
+                array_address_straight[2].push([tate+3,yoko-3]);
+                array_address_straight[2].push([tate+4,yoko-4]);
+                array_address_straight[2].push([tate+5,yoko-5]);
+                array_address_straight[2].push([tate+6,yoko-6]);
+                array_address_straight[2].push([tate+7,yoko-7]);
+                array_address_straight[2].push([tate+8,yoko-8]);
+                array_address_straight.push(Array());
+                array_address_straight[3].push([tate-1,yoko+1]);
+                array_address_straight[3].push([tate-2,yoko+2]);
+                array_address_straight[3].push([tate-3,yoko+3]);
+                array_address_straight[3].push([tate-4,yoko+4]);
+                array_address_straight[3].push([tate-5,yoko+5]);
+                array_address_straight[3].push([tate-6,yoko+6]);
+                array_address_straight[3].push([tate-7,yoko+7]);
+                array_address_straight[3].push([tate-8,yoko+8]);
+                array_address.push([tate,yoko-1]);
+                array_address.push([tate-1,yoko]);
+                array_address.push([tate,yoko+1]);
+                array_address.push([tate+1,yoko]);
+                break;
+        }
+
+        array_address = checkMasu(array_address);
+        array_address_straight = checkMasu_straight(array_address_straight);
+        addColorClass(array_address);
+        addColorClass(array_address_straight);
 
     }
+
+    //通常の駒の動き
+    function checkMasu(array_address){
+        var array_checked_address = new Array();
+
+        var i = 0;
+        var j = 0;
+        while(i < array_address.length){
+            if(array_address[i][0] >= 1 && array_address[i][0] <= 9 && array_address[i][1] >= 1 && array_address[i][1] <= 9 ){
+                if(!$(".masu" + String(array_address[i][0]) + "-" + String(array_address[i][1])).hasClass("jijin")){
+                    array_checked_address[j] = [array_address[i][0],array_address[i][1]];
+                    j++;
+                }
+            }
+            i++;
+        }
+        return array_checked_address;
+    }
+    //飛車、角、龍、馬、香車の時にこれつかう
+    function checkMasu_straight(array_address_straight){
+        var array_checked_address = new Array();
+        var i = 0;
+        var j = 0;
+        var k = 0
+        while(i < array_address_straight.length){
+            while(j < array_address_straight[i].length){
+                if(array_address_straight[i][j][0] >= 1 && array_address_straight[i][j][0] <= 9 && array_address_straight[i][j][1] >= 1 && array_address_straight[i][j][1] <= 9 ){
+                    if($(".masu" + String(array_address_straight[i][j][0]) + "-" + String(array_address_straight[i][j][1])).hasClass("jijin")){
+                        break;;
+                    }else if($(".masu" + String(array_address_straight[i][j][0]) + "-" + String(array_address_straight[i][j][1])).hasClass("tekijin")){
+                        array_checked_address[k] = [array_address_straight[i][j][0],array_address_straight[i][j][1]]
+                        k++;
+                        break;
+                    }else{
+                        array_checked_address[k] = [array_address_straight[i][j][0],array_address_straight[i][j][1]]
+                        k++;
+                    }
+                }
+                j++
+            }
+            j = 0 ;
+            i++;
+        }
+        return array_checked_address;
+    }
+
+    function addColorClass(array_address){
+        var i = 0;
+        while(i < array_address.length){
+            $("#" + String(array_address[i][0]) + "-" + String(array_address[i][1])).addClass("youcango");
+            i++;
+        }
+    }
+
+
 
 </script>
