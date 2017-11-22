@@ -6,6 +6,7 @@ class RoomController extends AppController {
 
         $pagedata = $this->request->query;
         $komaname = $this->komas->find('all');
+        $mochigoma = array();
 
         //DBから、駒状況取得
         $situations = $this->historys->find('first',array(
@@ -14,7 +15,7 @@ class RoomController extends AppController {
         ));
 
 
-//debug($situations);
+//debug();
 
         //駒の名前パース
         foreach ($komaname as $key => $value) {
@@ -27,24 +28,86 @@ class RoomController extends AppController {
             if ($key == 'id' || $key == 'created' || $key == 'hash'){
 
             }else{
-                $koma[substr($key,0,1)][substr($key,2,1)]  = $value;
+                switch ($key) {
+                    case 'sente-kin';
+                        $newkey = 3;
+                        break;
+                    case 'sente-gin';
+                        $newkey = 4;
+                        break;
+                    case 'sente-kei';
+                        $newkey = 6;
+                        break;
+                    case 'sente-kyou';
+                        $newkey = 8;
+                        break;
+                    case 'sente-hu';
+                        $newkey = 14;
+                        break;
+                    case 'sente-hisha';
+                        $newkey = 10;
+                        break;
+                    case 'sente-kaku';
+                        $newkey = 12;
+                        break;
+                    case 'gote-kin';
+                        $newkey = 3;
+                        break;
+                    case 'gote-gin';
+                        $newkey = 4;
+                        break;
+                    case 'gote-kei';
+                        $newkey = 6;
+                        break;
+                    case 'gote-kyou';
+                        $newkey = 8;
+                        break;
+                    case 'gote-hu';
+                        $newkey = 14;
+                        break;
+                    case 'gote-hisha';
+                        $newkey = 10;
+                        break;
+                    case 'gote-kaku';
+                        $newkey = 12;
+                        break;
+                }
+
+
+                if (substr($key,0,5) == 'sente'){
+                    $mochigoma['sente'][$newkey] = $value;
+                }elseif(substr($key,0,4) == 'gote') {
+                    $mochigoma['gote'][$newkey] = $value;
+                }else{
+                    $koma[substr($key,0,1)][substr($key,2,1)]  = $value;
+                }
             }
         }
+        debug($mochigoma);
+        $this_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'].'/shogi/room/?id=';
+
 
         if(empty($pagedata['teban'])){
         //先手番
-
             //シェア用文言
             $share['jpn'] = '後手番をシェア';
-            $share['url'] = 'http://tomitomiclub.com/shogi/room/?id='.$pagedata['id'].'&teban=gote';
+            $share['url'] = $this_url.$pagedata['id'].'&teban=gote';
             $share['teban'] = '先手';
+            $share['tebanint'] = 0;
+            $share['mochigoma-jibun'] = $mochigoma['sente'];
+            $share['mochigoma-aite'] = $mochigoma['gote'];
 
 
         }else{
         //後手番
             $share['jpn'] = '先手番をシェア';
-            $share['url'] = 'http://tomitomiclub.com/shogi/room/?id='.$pagedata['id'];
+            $share['url'] = $this_url.$pagedata['id'];
             $share['teban'] = '後手';
+            $share['tebanint'] = 1;
+            $share['mochigoma-jibun'] = $mochigoma['gote'];
+            $share['mochigoma-aite'] = $mochigoma['sente'];
+
+
 
             for($i=9; $i>0 ;$i--){
                 for($j=9; $j>0 ;$j--){
