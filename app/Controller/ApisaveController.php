@@ -7,11 +7,11 @@ class ApisaveController extends AppController {
 
 
         //形式はこんな感じ
-        //http://localhost:8080/shogi/api_save/save?id=room-59f1a57f6e5e1&5-5=brank&5-6=%E9%BE%8D
-        // debug($this->request->query);
+        // http://localhost:8080/shogi/api_save/save?id=room-59f1a57f6e5e1&5-5=brank&5-6=%E9%BE%8D
 
         $getinfo = $this->request->data;
-
+        // $getinfo = $this->request->query;
+        // return var_dump($getinfo);
         // debug($getinfo['id']);
 
         $situations = $this->historys->find('first',array(
@@ -45,14 +45,14 @@ class ApisaveController extends AppController {
                 $situations['historys'][$key] =$komamove[$key];
         }
 
-
+        unset($situations['historys']['created']);
         $this->historys->create();
         $this->historys->set($situations);
         $this->historys->set('id','');
         // $this->historys->save();
 
         if($this->historys->save()){
-            return 'saved!';
+            return 'saved!'.json_encode($situations);
         }else{
             return 'save faild!';
         }
@@ -60,13 +60,16 @@ class ApisaveController extends AppController {
 
     }
     public function translationToId($komamove){
+
         $komalist = $this->komas->find('all',array(
             'conditions' => array('or' => array(
-                array('teban' => '先手'),
+                array('teban' => $komamove['teban']),
                 array('teban' => 'なし')
             ))
         ));
+        unset($komamove['teban']);
         $result = array();
+
         foreach($komamove as $key => $valuefrom ){
             foreach ($komalist as $valueto) {
                 if($valuefrom == $valueto['komas']['koma_name']){

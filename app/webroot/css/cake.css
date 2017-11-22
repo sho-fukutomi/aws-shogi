@@ -778,3 +778,26 @@ pre {
     height: 100%;
     width: 100%;
 }
+.komada-aite{
+    /* float:left; */
+    /* width:200px;  */
+    height:100px;
+    margin:5px; padding:10px; border:1px solid black;
+    background-color:lightgray;
+
+}
+.komada-jibun{
+    /* float:right; */
+    /* width:200px;  */
+    height:100px;
+    margin:5px; padding:10px; border:1px solid black;
+    background-color:lightgray;
+
+}
+.shougiban{
+    /* float:inherit; */
+}
+
+.tablebox {
+	display: table-cell;
+}

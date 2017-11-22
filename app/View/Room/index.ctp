@@ -4,46 +4,69 @@
 <?php echo '<script type="text/javascript" src="/shogi/js/jquery-ui.min.js"></script>' ?>
 
 <div style="text-align: -webkit-center">
-<!-- シェア用フォーム -->
-<h3><?php echo $share['jpn']?><h3>
-<form>
-    <input type="text" name="share" class="share" value='<?php echo $share['url'] ?>' readonly>
-</form>
-<div class="space"></div>
-<!-- 将棋盤 -->
-<table border="1" cellspacing="0" cellpadding="0"  id="shougiban" width="0" >
-    <?php $j = 1?>
-    <?php foreach ($koma as $key => $value): ?>
-    <tr>
-        <?php for ($i = 9; $i>0; $i-- ): ?>
-            <?php //echo debug($key)?>
-            <?php if($value[$i] =='1' ):?>
-                <!-- ブランク -->
-                <td class="masu <?php echo 'masu'.$key.'-'.$i ?>" width="0"><div id="<?php echo $key.'-'.$i?>"></div></td>
-            <?php else:?>
-                <!-- 駒がある状態 -->
-                <?php if($value[$i] >14): ?>
-                    <td style="text-align:-webkit-center">
-                        <div id="<?php echo $key.'-'.$i?>">
-                            <img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0">
-                        </div
-                    </td>
-                <?php else: ?>
-                    <td style="text-align:-webkit-center">
-                        <div id="<?php echo $key.'-'.$i?>">
-                            <img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0">
-                        </div>
-                    </td>
-                <?php endif;?>
-            <?php endif;?>
-        <?php $j++?>
-        <?php endfor; ?>
-    </tr>
-    <?php endforeach; ?>
-</table>
-<!-- 将棋盤ここまで -->
-</div>
+    <!-- シェア用フォーム -->
+    <h3><?php echo $share['jpn']?></h3>
+    <form>
+        <input type="text" name="share" class="share" value='<?php echo $share['url'] ?>' readonly>
+    </form>
+    <div class="space"></div>
 
+    <div class='battle-space'>
+        <div class='komada-aite komadai shogi-item tablebox'>
+            <?php foreach ($share['mochigoma-aite'] as $key => $value): ?>
+                <?php if($value > 0 ):?>
+                        <div><img src="../img/koma/<?php echo $key+14?>.svg" class='masu'>☓ <?php echo $value ?> </div>
+                <?php endif;?>
+            <?php endforeach; ?>
+        </div>
+
+<?php // debug($koma)?>
+        <!-- 将棋盤 -->
+        <div class='shougibanshogi-item tablebox'>
+            <table border="1" cellspacing="0" cellpadding="0"  id="shougiban" width="0" >
+            <?php // debug($koma)?>
+                <?php $j = 1?>
+                <?php foreach ($koma as $key => $value): ?>
+                <tr>
+                    <?php for ($i = 9; $i>0; $i-- ): ?>
+                        <?php //echo debug($key)?>
+                        <?php if($value[$i] =='1' ):?>
+                            <!-- ブランク -->
+                            <td class="masu <?php echo 'masu'.$key.'-'.$i ?>" width="0"><div id="<?php echo $key.'-'.$i?>"></div></td>
+                        <?php else:?>
+                            <!-- 駒がある状態 -->
+                            <?php if($value[$i] >14): ?>
+                                <td style="text-align:-webkit-center">
+                                    <div id="<?php echo $key.'-'.$i?>" class=koma"<?php echo $value[$i]?>">
+                                        <img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="tekijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0">
+                                    </div>
+                                </td>
+                            <?php else: ?>
+                                <td style="text-align:-webkit-center">
+                                    <div id="<?php echo $key.'-'.$i?>" class=koma"<?php echo $value[$i]?>">
+                                        <img src="../img/koma/<?php echo $value[$i]?>.svg" id=koma<?php echo $j?>  alt="<?php echo $komaarray[$value[$i]]?>" class="jijin masu <?php echo 'masu'.$key.'-'.$i ?>" width="0">
+                                    </div>
+                                </td>
+                            <?php endif;?>
+                        <?php endif;?>
+                    <?php $j++?>
+                    <?php endfor; ?>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        <!-- 将棋盤ここまで -->
+        </div>
+
+        <div class='komada-jibun komadai shogi-item tablebox'>
+            <?php foreach ($share['mochigoma-jibun'] as $key => $value): ?>
+                <?php if($value > 0 ):?>
+                        <div><img src="../img/koma/<?php echo $key?>.svg" class='masu'>☓ <?php echo $value ?> </div>
+                <?php endif;?>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+</div>
 
 <!-- JSデバッグ用フォーム -->
 <form>
@@ -77,17 +100,23 @@
         timer = setTimeout(function() {
             console.log(window.innerWidth);
             console.log(window.innerHeight);
-            var minWidth = (window.innerWidth);
-            var minHeight = (window.innerHeight) *0.9;
+            var minWidth = (window.innerWidth) *0.7;
+            var minHeight = (window.innerHeight) *0.7;
 
             // var minWidth = (window.innerWidth-30)*0.9;
             // var minHeight = (window.innerHeight -50) * 0.8;
             if(minWidth < minHeight){
                 minHeight = minWidth;
+                $('.shogi-item').removeClass('tablebox');
+                // $('.battle-space').width(minWidth);
+                // $('.komadai').width(minWidth);
+
             }else{
                 minWidth = minHeight;
+                $('.shogi-item').addClass('tablebox');
+                $('.komadai').width((window.innerWidth) *0.4);
             }
-            $('#shougiban').width(minWidth).height(minHeight);
+            // $('#shougiban').width(minWidth).height(minHeight);
             $('.masu').width(minWidth/10).height(minHeight / 10);
         }, 200);
     }
@@ -96,27 +125,51 @@
     //----------------------------------------------------------将棋系-----------------------
 
     $('td').click(function(){
+
+        //クリック時の処理
         //縦
         var row = $(this).closest('tr').index() + 1;
         //横
         var col = 9 - this.cellIndex;
+
         console.log('Row: ' + row + ', Column: ' + col);
         $("#debugger").val('Row: ' + row + ', Column: ' + col);
 
+        //クリックした場所が移動可能場所だった場合の処理
         if($(this).children('div').hasClass('youcango')){
-            var arrayData = {};
             var class_Array = $(".yourplace").children().attr('class').split(" ")
-
-            var addto = String(row)+'-'+String(col);
             var fromadd = class_Array[2].slice(4);
+
+
+            //ここに座標を後手用にする処理と
+            //敵駒をゲット処理をかく
+            if (<?php  echo $share['tebanint'] ?>){
+
+                var addto = String(10-Number(row))+'-'+String(10-Number(col));
+                var fromadd = String(10-Number(fromadd.slice(0,1))+'-'+String(10-Number(fromadd.slice(2,3))));
+                var teban = '後手';
+
+            }else{
+                var addto = String(row)+'-'+String(col);
+                var fromadd = class_Array[2].slice(4);
+                var teban = '先手';
+            }
+
+
+            var arrayData = {}; //送信用オブジェクト
 
             arrayData['id'] = "<?php echo $roomid ?>";
             arrayData[fromadd] = 'brank'
             arrayData[addto] = $(".yourplace").children().attr('alt');
+            arrayData['teban'] = teban;
 
             $('.yourplace').appendTo($(this));
             $("div").removeClass("youcango");
             $("div").removeClass("yourplace");
+
+
+
+
             $.post(
                 "../api_save/save",
                 arrayData,
