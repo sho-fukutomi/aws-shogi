@@ -83,7 +83,7 @@ class RoomController extends AppController {
                 }
             }
         }
-    //   debug($mochigoma);
+      debug($mochigoma);
         $this_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'].'/shogi/room/?id=';
 
 
