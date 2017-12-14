@@ -4,8 +4,6 @@ class ApisaveController extends AppController {
     public $uses = array('test','rooms','historys','komas');
 	public function save() {
         $this->autoRender = false;
-
-
         //形式はこんな感じ
         // http://localhost:8080/shogi/api_save/save?id=room-59f1a57f6e5e1&5-5=brank&5-6=%E9%BE%8D
 
@@ -30,9 +28,6 @@ class ApisaveController extends AppController {
         return $this->setkoma($getinfo['id'],$komamove);
 	}
 
-
-
-
     public function setkoma($uniqid,$komamove){
 
 
@@ -42,20 +37,25 @@ class ApisaveController extends AppController {
         ));
 
         foreach ($komamove as $key => $value) {
-                $situations['historys'][$key] =$komamove[$key];
+                $situations['historys'][$key] =$komamove[$key];=
+                //コマを取っていたら自陣に追加する処理を書く
+                if($key == 'gotkoma'){
+                    return json_encode($key) ;
+                }
+
         }
 
+return json_encode($situations) ;
         unset($situations['historys']['created']);
         $this->historys->create();
         $this->historys->set($situations);
         $this->historys->set('id','');
-        // $this->historys->save();
-
-        if($this->historys->save()){
-            return 'saved!'.json_encode($situations);
-        }else{
-            return 'save faild!';
-        }
+return json_encode($situations) ;
+        // if($this->historys->save()){
+        //     return 'saved!'.json_encode($situations);
+        // }else{
+        //     return 'save faild!';
+        // }
 
 
     }
@@ -78,6 +78,18 @@ class ApisaveController extends AppController {
             }
         }
         return $result;
+    }
+
+    //ハッシュの最後の手番を教えてくれるよ
+    public function checkreload(){
+        $this->autoRender = false;
+        $getinfo = $this->request->data;
+        $lastTeban = $this->historys->find('first',array(
+            'conditions' => array('hash' => $getinfo['hash']),
+            'order' =>  array('id' => 'DESC'),
+            'fields' => array('historys.teban'),
+        ));
+        return $lastTeban['historys']['teban'];
     }
 
 

