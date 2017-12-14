@@ -24,8 +24,7 @@ class RoomController extends AppController {
 
         //駒状況を配列に格納
         foreach ($situations['historys'] as $key => $value) {
-
-            if ($key == 'id' || $key == 'created' || $key == 'hash'){
+            if ($key == 'id' || $key == 'created' || $key == 'hash' || $key == 'teban'){
 
             }else{
                 switch ($key) {
@@ -83,7 +82,6 @@ class RoomController extends AppController {
                 }
             }
         }
-      debug($mochigoma);
         $this_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'].'/shogi/room/?id=';
 
 
@@ -106,8 +104,6 @@ class RoomController extends AppController {
             $share['tebanint'] = 1;
             $share['mochigoma-jibun'] = $mochigoma['gote'];
             $share['mochigoma-aite'] = $mochigoma['sente'];
-
-
 
             for($i=9; $i>0 ;$i--){
                 for($j=9; $j>0 ;$j--){
