@@ -37,7 +37,7 @@ class ApisaveController extends AppController {
         ));
 
         foreach ($komamove as $key => $value) {
-                $situations['historys'][$key] =$komamove[$key];=
+                $situations['historys'][$key] = $komamove[$key]; 
                 //コマを取っていたら自陣に追加する処理を書く
                 if($key == 'gotkoma'){
                     return json_encode($key) ;
