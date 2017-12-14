@@ -233,7 +233,7 @@
             $.post(
                 "../api_save/checkreload",
                 arrayData,
-                function(){
+                function(data){
                     console.log(data); //結果をアラートで表示
                 }
             );
