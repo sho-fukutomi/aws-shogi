@@ -1,0 +1,711 @@
+    body {
+        background-color: #000;
+        color: #bf823e;
+        margin: 10;
+        padding: 0px;
+        font-family: ricty;
+    }
+    a:link { color: #6467ff; }
+    a:visited { color: #e2a6ff; }
+    a:hover { color: #f53e65; }
+    a:active { color: #ff8000; }
+    .css-fukidashi {
+      padding: 0;
+      margin: 0;
+    }
+    .text {
+      position: relative;
+    }
+    .fukidashi {
+      font-size: 15px;
+
+      display: none;
+      width: 400px;
+      position: absolute;
+      z-index: 2;
+      /* left: 250px; */
+      padding: 16px;
+      border-radius: 5px;
+      background: #222;
+      opacity: 0.8;
+      color: #EEE;
+      font-weight: bold;
+    }
+    /* .fukidashi:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      bottom: -19px;
+      margin-left: 10px;
+      border: solid transparent;
+      border-color: rgba(51, 204, 153, 0);
+      border-top-color: #33cc99;
+      border-width: 10px;
+      pointer-events: none;
+      content: " ";
+    } */
+    .text:hover + .fukidashi {
+      display: block;
+    }
+    h3 {
+        padding: 0.5em;/*文字周りの余白*/
+        color: #fff;/*文字色*/
+        background: #040c3c;/*背景色*/
+        border-left: solid 5px #35c;/*左線（実線 太さ 色）*/
+    }
+    h2 {
+        color: #ffa4a4;
+    }
+    ul, ol {
+        background: #020202;
+        /* box-shadow: 0px 0px 0px 10px #ada552; */
+        /* border: dashed 2px #3fff5f; */
+        border-radius: 9px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 0.5em 0.5em 0.5em 2em;
+        color: #78a295;
+    }
+
+
+
+    ul li, ol li {
+      line-height: 1.0;
+      padding: 0.0em 0;
+    }
+    h3 {
+        display: block;
+        font-size: 1.00em;
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
+    }
+    .column {
+      height: 100vh;
+      width: 100%;
+    }
+    .cat1 {
+      /* background: url(images/cat1.jpg) no-repeat top center; */
+      background-size: cover;
+    }
+    .cat2 {
+      /* background: url(images/cat2.jpg) no-repeat center center; */
+      background-size: cover;
+    }
+    @media all and (min-width: 500px) {
+        .wrapper{
+            display: flex;
+        }
+    }
+    .notfdc {
+        color: #4d635c;
+    }
+    .fdc{
+        color: #78a295;
+    }
+
+
+    .box_1 {
+        width: 500px;
+        margin: 60px auto;
+        padding: 15px;
+            background-size: 10px 10px;
+        /* background-color: #E6E6EA; */
+        background-image: linear-gradient(45deg,#ff7600 25%,transparent 25%,transparent 50%,#ff7600 50%,#ff7600 75%,transparent 75%,transparent);
+        }
+    .main_contents {
+         background: #fff;
+         padding: 25px;
+        }
+
+    .green{
+        background: #0c331e;
+        color: #fff;
+        padding: 10px;
+        display: block;
+        margin: 0;
+        border: 1px solid #fff;
+    }
+
+    .red{
+        background: #6d1a4e;
+        color: #fff;
+        padding: 10px;
+        display: block;
+        margin: 0;
+        border: 1px solid #fff;
+    }
+
+
+
+    input[type="checkbox"].on-off{
+        display: none;
+    }
+
+    .menu ul {
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .menu li {
+        padding: 5px;
+    }
+
+    input[type="checkbox"].on-off + ul{
+        height: 0;
+        overflow: hidden;
+    }
+
+    input[type="checkbox"].on-off:checked + ul{
+        height: auto;
+    }
+    .cake-error {
+        display: none;
+    }
+    .textleft{
+        text-align: left;
+    }
+    .square_btn{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #2b2323;
+        border-left: solid 6px #90ff88;/*左線*/
+        color: #90ff88;/*文字色*/
+        font-weight: bold;
+    }
+    .square_btn:active {
+        transform: translateY(2px);
+    }
+    .listbutton {
+        margin-bottom:0px;
+    }
+
+    table{
+      margin:0 auto;
+    }
+    td,th{
+      padding:1px;
+    }
+    table tr:nth-child(even){
+        background: #313131;
+    }
+    table tr:nth-child(odd){
+        background: #252525;
+    }
+
+    .square1 {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #9affea;
+    }
+    .square90 {
+	    display: inline-block;
+        width: 4px;
+        height: 90px;
+	    background: #ffa60c;
+    }
+    .square80 {
+    	display: inline-block;
+        width: 4px;
+        height: 80px;
+    	background: #5b5b5b;
+    }
+    .square62 {
+    	display: inline-block;
+        width: 4px;
+        height: 62px;
+    	background: #f92286;
+    }
+    .square61 {
+    	display: inline-block;
+        width: 4px;
+        height: 61px;
+    	background: #2222f9;
+    }
+    .square51 {
+    	display: inline-block;
+        width: 4px;
+        height: 51px;
+    	background: #fbac76;
+    }
+    .square42 {
+    	display: inline-block;
+        width: 4px;
+        height: 42px;
+    	background: #016d57;
+    }
+    .square41 {
+    	display: inline-block;
+        width: 4px;
+        height: 41px;
+    	background: #e5e5a7;
+    }
+    .square33 {
+    	display: inline-block;
+        width: 4px;
+        height: 33px;
+    	background: #efef1f;
+    }
+    .square32 {
+    	display: inline-block;
+        width: 4px;
+        height: 32px;
+    	background: #8e2def;
+    }
+    .square31 {
+    	display: inline-block;
+        width: 4px;
+        height: 31px;
+    	background: #ed3ccc;
+    }
+    .square27 {
+    	display: inline-block;
+        width: 4px;
+        height: 27px;
+    	background: #cc3ded;
+    }
+    .square26 {
+    	display: inline-block;
+        width: 4px;
+        height: 26px;
+    	background: #b7ef3e;
+    }
+    .square25 {
+    	display: inline-block;
+        width: 4px;
+        height: 25px;
+    	background: #b3bce0;
+    }
+    .square24 {
+    	display: inline-block;
+        width: 4px;
+        height: 24px;
+    	background: #1d46e5;
+    }
+    .square23 {
+    	display: inline-block;
+        width: 4px;
+        height: 23px;
+    	background: #4e6eed;
+    }
+    .square22 {
+    	display: inline-block;
+        width: 4px;
+        height: 22px;
+    	background: #1d46e5;
+    }
+    .square21 {
+    	display: inline-block;
+        width: 4px;
+        height: 21px;
+    	background: #4e6eed;
+    }
+    .square12 {
+    	display: inline-block;
+        width: 4px;
+        height: 12px;
+    	background: #f9ec6d;
+    }
+    .square11 {
+    	display: inline-block;
+        width: 4px;
+        height: 11px;
+    	background: #e0d467;
+    }
+    .square06 {
+    	display: inline-block;
+        width: 4px;
+        height: 6px;
+    	background: #47423b;
+    }
+    .square05 {
+    	display: inline-block;
+        width: 4px;
+        height: 5px;
+    	background: #69c4e0;
+    }
+    .square04 {
+    	display: inline-block;
+        width: 4px;
+        height: 4px;
+    	background: #78afbf;
+    }
+    .square03 {
+    	display: inline-block;
+        width: 4px;
+        height: 3px;
+    	background: #bfbc78;
+    }
+    .square02 {
+    	display: inline-block;
+        width: 4px;
+        height: 2px;
+    	background: #afaaa5;
+    }
+    .square01 {
+    	display: inline-block;
+        width: 4px;
+        height: 1px;
+    	background: #b2b2b2;
+    }
+    .graph {
+        font-size: 0px;
+    }
+
+    .square5b4d4c457c73ecf308842895{ /* [TODO] */
+    	display:inline-block;
+    	width:4px;
+    	height:5px;
+    	background:#ffffff;
+    }
+
+
+
+    .square5b4d4c4d596cd4d00bdd5321{ /* TASKS */
+    	display:inline-block;
+    	width:4px;
+    	height:10px;
+    	background:#3d85c6;
+    }
+
+
+    .square5b4d4c5ba209bce449d15877{ /* ONGOING-DEV */
+    	display:inline-block;
+    	width:4px;
+    	height:15px;
+    	background:#3d85c6;
+    }
+
+
+
+    .square5b4d4cae168a92088b4817b9{/* FEEDBACK - FIXING BUG */
+    	display:inline-block;
+    	width:4px;
+    	height:20px;
+    	background:#3d85c6;
+    }
+
+
+    .square5b4d4c83196c2c03af7ec49f{ /* FOR CODE REVIEW_ */
+    	display:inline-block;
+    	width:4px;
+    	height:25px;
+    	background:#3d85c6;
+    }
+
+
+
+    .square5b4d4c8f3cd91f668bf56065{ /* FOR RELEASE - DEV */
+    	display:inline-block;
+    	width:4px;
+    	height:30px;
+    	background:#3d85c6;
+    }
+
+
+    .square5b4d4fa071efa46b72f92e18{ /* FOR TESTING - DEV */
+    	display:inline-block;
+    	width:4px;
+    	height:35px;
+    	background:#ff748c;
+    }
+
+
+    .square5b4d4ca1281ef5370d4d699e{ /* ON TEST - DEV*/
+    	display:inline-block;
+    	width:4px;
+    	height:40px;
+    	background:#ff748c;
+    }
+
+
+    .square5bbc0458b92ef309981e8685{ /* PARK_CODE_REVIEW */
+    	display:inline-block;
+    	width:4px;
+    	height:40px;
+    	background:#471147;
+    }
+
+    .square5b4d4cb695d1ad087452739c{ /* FINAL TEST - DEV */
+    	display:inline-block;
+    	width:4px;
+    	height:50px;
+    	background:#674ea7;
+    }
+
+
+    .square5b4d4cc5f972bd78428555df{ /* GGPEI TEST - DEV */
+    	display:inline-block;
+    	width:4px;
+    	height:50px;
+    	background:#ffff00;
+    }
+
+
+    .square5b5ef37b2ded8753eee24107{ /* WT Review OR Adjust Release */
+    	display:inline-block;
+    	width:4px;
+    	height:60px;
+    	background:#666666;
+    }
+
+
+
+    .square5b4d4cd34877ca1013784f43{ /* FOR RELEASE - STAGING */
+    	display:inline-block;
+    	width:4px;
+    	height:60px;
+    	background:#307d03;
+    }
+
+
+
+    .square5b4d4d55ec5938f2a7b36fbc{ /* RELEASED - STAGING */
+    	display:inline-block;
+    	width:4px;
+    	height:70px;
+    	background:#307d03;
+    }
+
+
+
+    .square5b4d4d5d61a48f0891d5ebe9{ /* ON TEST - STAGING */
+    	display:inline-block;
+    	width:4px;
+    	height:70px;
+    	background:#307d03;
+    }
+
+
+    .square5b4d4d7705e106519935138c{ /* DONE - STAGING */
+    	display:inline-block;
+    	width:4px;
+    	height:80px;
+    	background:#307d03;
+    }
+
+
+
+    .square5b4d4d851cd8e30871de21aa{ /* FOR RELEASE - PRODUCTION */
+    	display:inline-block;
+    	width:4px;
+    	height:80px;
+    	background:#ff8f42;
+    }
+
+
+    .square5b4d4d9342a723f457e34c7c{ /* RELEASED - PRODUCTION */
+    	display:inline-block;
+    	width:4px;
+    	height:90px;
+    	background:#ff8f42;
+    }
+
+
+
+    .square5b4d4d99a68f925adbb85223{ /* CLOSED */
+    	display:inline-block;
+    	width:4px;
+    	height:90px;
+    	background:#32cd32;
+    }
+
+
+
+    .square5b4d4d9e95d1ad0874528a04{ /* PENDING */
+    	display:inline-block;
+    	width:4px;
+    	height:100px;
+    	background:#471147;
+    }
+
+
+
+
+
+
+
+
+
+    .td5b4d4c5ba209bce449d15877{ /* ONGOING-DEV */
+        background:#3d85c6;
+    }
+
+
+
+    .td5b4d4cae168a92088b4817b9{/* FEEDBACK - FIXING BUG */
+        background:#3d85c6;
+    }
+
+
+    .td5b4d4ca1281ef5370d4d699e{ /* ON TEST - DEV*/
+        background:#ff748c;
+    }
+
+
+    .td5b4d4c4d596cd4d00bdd5321{ /* TASKS */
+    	background:#384a5a;
+    }
+    .td5b4d4fa071efa46b72f92e18{ /* FOR TESTING - DEV */
+    	background:#793e48;
+    }
+
+.C-5b4d4c457c73ecf308842895 { /* Aki before assign(new)*/   
+color:#000;         
+background: #8c8c8c;            
+}           
+.C-5d650f5097c68c074c0af74b { /* BE check requirement + make slack thread + BE DL set*/ 
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5d6510a8e0de835c3c354f0c { /* Fred developer assign PHP*/    
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5b4d4cae168a92088b4817b9 { /* FEEDBACK - FIXING BUG*/    
+color:#000;         
+background: #ff7ad0;            
+}           
+.C-5b4d4ca1281ef5370d4d699e { /* ON TEST - DEV*/    
+color:#000;         
+background: #ff7ad0;            
+}           
+.C-5b4d4cb695d1ad087452739c { /* FINAL TEST - DEV*/ 
+color:#000;         
+background: #ba7aff;            
+}           
+.C-5b4d4cc5f972bd78428555df { /* GGPEI TEST - DEV*/ 
+color:#000;         
+background: #ffff99;            
+}           
+.C-5b4d4d5d61a48f0891d5ebe9 { /* ON TEST - STAGING*/    
+color:#000;         
+background: #307d03;            
+}           
+.C-5b4d4d9342a723f457e34c7c { /* RELEASED - PRODUCTION*/    
+color:#000;         
+background: #ff8f42;            
+}           
+.C-5c0746a95e7301133ff5188b { /* TEST CASE - IN PROGRESS (1 DAY OR LESS)*/  
+color:#000;         
+background: #307d03;            
+}           
+.C-5d4a0eb3e06c9f74168a9d9e { /* PARENT TICKET(NO DEVELOP NEEDED)*/ 
+color:#000;         
+background: #8c8c8c;            
+}           
+.C-5d651001a7488f806c789930 { /* BE requirement clarify to GGPE if needed*/ 
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5d65104d1458f304ba8b9766 { /* BE waiting for stamp*/ 
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5b5ef37b2ded8753eee24107 { /* BE Adjust Release*/    
+color:#000;         
+background: #dfccf3;            
+}           
+.C-5b4d4d7705e106519935138c { /* DONE - STAGING - WT RELEASE TO LIVE*/  
+color:#000;         
+background: #307d03;            
+}           
+.C-5c36f5a51aafef03db35fb85 { /* ROLLEDBACK - INVESTIGATING*/   
+color:#000;         
+background: #9e9e9e;            
+}           
+.C-5d425b2a4cff0b55a72702f0 { /* FEEDBACK - ADD Spec*/  
+color:#000;         
+background: #ff7ad0;            
+}           
+.C-5b4d4fa071efa46b72f92e18 { /* FOR TESTING - DEV*/    
+color:#000;         
+background: #ff7ad0;            
+}           
+.C-5b4d4cd34877ca1013784f43 { /* FOR RELEASE - STAGING*/    
+color:#000;         
+background: #307d03;            
+}           
+.C-5b4d4c5ba209bce449d15877 { /* ONGOING-DEV PHP*/  
+color:#000;         
+background: #5a8dff;            
+}           
+.C-5c0746f07504186070af4f0a { /* ONGOING but pending*/  
+color:#000;         
+background: #6277a6;            
+}           
+.C-5d6510b643e32638ac87bc67 { /* Fred developer assign iOS*/    
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5d651100e4a7124bd92b1aca { /* Developer DB/API Design*/  
+color:#000;         
+background: #8ccaef;            
+}           
+.C-5d6511583e5e402eb9778e26 { /* ONGOING-DEV iOS*/  
+color:#000;         
+background: #5a8dff;            
+}           
+.C-5d651039a1d0dc6965fea359 { /* BE making spec*/   
+color:#000;         
+background: #8ccaef;            
+}           
+
+
+/*
+    .sticky_table {
+      display: block;
+      position: relative;
+      overflow: scroll;
+      width: calc(100vw - 3.0rem);
+      height: calc(75vh);
+      border-collapse: collapse;
+      font-size: 0;
+    }
+
+
+    .sticky_table thead,
+    .sticky_table tbody {
+      display: block;
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+    }
+
+    .sticky_table th,
+    .sticky_table td {
+      display: inline-block;
+      width: 8.0rem;
+      background: #fff;
+      font-size: 1.0rem;
+    }
+    .sticky_table tbody th {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+    .sticky_table thead {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .sticky_table thead th.blank {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 3;
+    } */

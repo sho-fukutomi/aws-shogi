@@ -36,7 +36,6 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array();
-
 /**
  * Displays a view
  *
@@ -46,6 +45,7 @@ class PagesController extends AppController {
  *   or MissingViewException in debug mode.
  */
 	public function display() {
+
 		$path = func_get_args();
 
 		$count = count($path);

@@ -2,6 +2,8 @@ config/database.php
 .ftpconfig
 .DS_Store
 app/Config/database.php
+app/Config/const.php
+app/Config/core.php
 app/webroot/myadminabscsooijoadfjlakjf
 app/tmp/cache/
 app/tmp/logs/

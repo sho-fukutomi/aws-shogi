@@ -1,0 +1,30 @@
+422:63f5f6dff7dee66ddd3607354f62be63bfa162be
+0
+1
+installed:425:fe00341dddbd4d484a5dbbd582cf0a2f2721f457
+3
+mbr: php-common,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: php,x86_64,0,5.4.16,46.el7@a:dependson php-cli,x86_64,0,5.4.16,46.el7@a:dependson
+  depends_on: php,x86_64,0,5.4.16,46.el7@a php-cli,x86_64,0,5.4.16,46.el7@a
+mbr: php-cli,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: php,x86_64,0,5.4.16,46.el7@a:dependson
+  depends_on: php,x86_64,0,5.4.16,46.el7@a
+mbr: php,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: False
+  reason: user
+  reinstall: False
