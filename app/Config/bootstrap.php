@@ -109,4 +109,14 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+define('LOG_FOR_YOU', 'log_for_you');
+
+CakeLog::config('log_for_you', array(
+'engine' => 'FileLog',
+'types' => array('log_for_you'),
+'file' => 'log_for_you',
+));
+
+
 config('const');

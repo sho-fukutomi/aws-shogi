@@ -223,7 +223,7 @@
                 "../api_save/save",
                 arrayData,
                 function(data){
-                    console.log(data); //結果をコンソールで表示
+                    console.log(data); //結果をアラートで表示
                 }
             );
             //POST 完了後リロード
@@ -248,10 +248,12 @@
             var classall =  $(this).attr("class");
             var class_Array = classall.split(" ")
             var alt =  $(this).attr("alt");
-            showYouCanMove(alt,class_Array[2]); //駒が動けるところを表示するまとめ関数
+            showYouCanMove(alt,class_Array[2]);//駒が動けるところを表示するまとめ関数
     });
+    //----------動けるとこクリック時-----------
 
-    //----------動けるとこ探す-----------
+
+
     function showYouCanMove(alt,address){
         var tate = Number(address.slice(4,5));
         var yoko = Number(address.slice(6,7));

@@ -1,0 +1,46 @@
+422:63f5f6dff7dee66ddd3607354f62be63bfa162be
+0
+1
+installed:427:7be51036e5470a1180753073a0ac715e484933ab
+5
+mbr: php-pdo,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: php-mysqlnd,x86_64,0,5.4.16,46.el7@a:dependson
+  depends_on: php-mysqlnd,x86_64,0,5.4.16,46.el7@a
+mbr: php-common,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: php-intl,x86_64,0,5.4.16,46.el7@a:dependson php-pdo,x86_64,0,5.4.16,46.el7@a:dependson
+  depends_on: php-intl,x86_64,0,5.4.16,46.el7@a php-pdo,x86_64,0,5.4.16,46.el7@a
+mbr: php-mysqlnd,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: False
+  reason: user
+  reinstall: False
+mbr: libicu,x86_64,0,50.1.2,17.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: True
+  reason: dep
+  reinstall: False
+  relatedto: php-intl,x86_64,0,5.4.16,46.el7@a:dependson
+  depends_on: php-intl,x86_64,0,5.4.16,46.el7@a
+mbr: php-intl,x86_64,0,5.4.16,46.el7 70
+  repo: base
+  ts_state: u
+  output_state: 20
+  isDep: False
+  reason: user
+  reinstall: False
