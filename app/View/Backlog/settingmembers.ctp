@@ -23,12 +23,12 @@
                             <th>edit</th>
                         </tr>
                         <?php foreach ($membersByTeam[$team['fdc_team']['id']] as $key2 => $teamMember): ?>
-
-                            <tr style="background:<?php echo $teamMember['role']['color'] ?>">
-                                <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['unique_key'] ?></td>
+<?php //debug($teamMember)?>
+                            <tr>
+                                <th class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['unique_key'] ?></th>
                                 <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['name'] ?> </td>
                                 <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['nick_name'] ?> </td>
-                                <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['role']['name']?> </td>
+                                <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?> roletext" style="background:<?php echo $teamMember['role']['color'] ?>" > <?php echo $teamMember['role']['name']?> </td>
                                 <td>
                                     <button id="delete_from_team_id_<?php echo $teamMember['unique_key'] ?>" class="editbutton" value="<?php echo $team['fdc_team']['id']?>">delete</button>
                                 </td>
@@ -41,8 +41,9 @@
                             <div class="cp_ipselect">
                             <select class="cp_sl06 add_team_id_<?php echo $team['fdc_team']['id'] ?> " required>
                             <option value="" hidden disabled selected></option>
-                            <?php foreach($fdcMembers as $key3 => $member): ?>
-                                <option value="<?php echo $key3 ?>"> <?php echo $member['fdc_members']['nick_name']; ?> </option>
+                            <?php foreach($backlogMembers as $key3 => $member): ?>
+                                <<?php //debug($member) ?>
+                                <option value="<?php echo $key3 ?>"> <?php echo $member['backlog_name']; ?> </option>
                             <?php endforeach; ?>
                             </select>
                             <span class="cp_sl06_highlight"></span>
@@ -67,19 +68,21 @@
     <div class="column cat2">
         <div class="upside">
             <table>
-                <?php foreach ($fdcMembers as $key => $value): ?>
+                <?php //debug(//$backlogMembers)?>
+                <?php foreach ($backlogMembers as $key => $value): ?>
+                    <?php //debug($value)?>
                     <tr>
-                        <td><?php echo $value['fdc_members']['unique_key']  ?></td>
-                        <td><?php echo $value['fdc_members']['username']  ?></td>
+                        <th><?php echo $value['backlog_id']  ?></th>
+                        <td><?php echo $value['backlog_name'] ?></td>
                         <td>
-                            <input type="text"class="textbox member_update_nick_name_<?php echo $value['fdc_members']['unique_key'] ?>" name="nick_name_<?php echo $value['fdc_members']['unique_key']  ?>" value="<?php echo $value['fdc_members']['nick_name']  ?>">
+                            <input type="text"class="textbox member_update_nick_name_<?php echo $value['backlog_id'] ?>" name="nick_name_<?php echo $value['backlog_id']  ?>" value="<?php echo $value['nickname'] ?>">
                         </td>
-                        <td>
+                        <td class="roletext" style="background:<?php echo $value['color']?>">
                             <div class="cp_ipselect">
-                            <select class="cp_sl06 member_update_role_<?php echo $value['fdc_members']['unique_key'] ?>" required>
+                            <select class="roletext cp_sl06 member_update_role_<?php echo $value['backlog_id'] ?>" required>
                             <option value="" hidden disabled selected></option>
                             <?php foreach ($roleList as $roleNumber => $role): ?>
-                                <option value="<?php echo $role['fdc_role']['id'] ?>" <?php echo $role['fdc_role']['id']==$value['fdc_members']['role'] ? 'selected' : ''  ?>> <?php echo $role['fdc_role']['name']; ?> </option>
+                                <option value="<?php echo $role['fdc_role']['id'] ?>" <?php echo $role['fdc_role']['id']==$value['role'] ? 'selected' : ''  ?>> <?php echo $role['fdc_role']['name']; ?> </option>
                             <?php endforeach; ?>
                             </select>
                             <span class="cp_sl06_highlight"></span>
@@ -87,10 +90,10 @@
                             </div>
                         </td>
                         <td>
-                            <button id="member_update_<?php echo $value['fdc_members']['unique_key'] ?>" class="editbutton" value="<?php echo $value['fdc_members']['unique_key'] ?>">EDIT</button>
+                            <button id="member_update_<?php echo $value['backlog_id'] ?>" class="editbutton" value="<?php echo $value['backlog_id'] ?>">EDIT</button>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php  endforeach; ?>
             </table>
 
 

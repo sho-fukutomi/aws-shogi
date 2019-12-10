@@ -1,6 +1,6 @@
 table{
   border-collapse: separate;
-  border-spacing: 0px 2px;
+  border-spacing: 0px 5px;
   margin: 0 auto;
   width: 95%;
 }
@@ -12,11 +12,16 @@ th{
   color: #fff;
 }
 td{
-  background: #8e3ab70f;
+  background: ##292929;
+  color: #e6e6e6;
+}
+tr{
+    background: #414141;
+
 }
 
 body{
-    background: #272927
+    background: #131313;
 }
 
 a:link { color: #a2a2ff; }
@@ -62,7 +67,7 @@ h3{
 /* セレクトボックス */
 .cp_ipselect {
 	position: relative;
-	width: 90%;
+	/* width: 90%; */
 	/* margin: 2em auto; */
 	text-align: center;
 }
@@ -72,10 +77,23 @@ h3{
     background-color: transparent;
     width: 100%;
     padding: 1px 10px 0px 0;
-    font-size: 80%;
+    font-size: 100%;
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0, 0.3);
+    /* border-bottom: 1px solid rgba(0,0,0, 0.3); */
+    color: #e6e6e6;
+}
+.cp_sl062 {
+    position: relative;
+    /* font-family: inherit; */
+    background-color: transparent;
+    width: 100%;
+    padding: 1px 10px 0px 0;
+    font-size: 100%;
+    border-radius: 0;
+    border: none;
+    /* border-bottom: 1px solid rgba(0,0,0, 0.3); */
+    color: #e6e6e6;
 }
 .cp_sl06:focus {
 	outline: none;
@@ -90,15 +108,15 @@ h3{
 }
 .cp_ipselect:after {
 	position: absolute;
-	top: 18px;
-	right: 10px;
+	top: 6px;
+	right: 5px;
 	width: 0;
 	height: 0;
 	padding: 0;
 	content: '';
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
-	border-top: 6px solid rgba(0, 0, 0, 0.3);
+	border-top: 6px solid rgba(72, 135, 154, 0.72);
 	pointer-events: none;
 }
 .cp_sl06_selectlabel {
@@ -148,16 +166,195 @@ h3{
 	opacity: 0.5;
 }
 
-
+.glaystring{
+    color:#e6e6e6;
+}
 
 .textbox{
     border: 0;
     color: #aaa;
     background: #0000;
 }
+.datebox{
+    border: 0;
+
+    /* color: #aaa;
+    background: #0000; */
+}
 
 .separate_team{
     margin: 0 auto;
     padding: 5px 0px 5px 0px;
 
+}
+
+.milestone{
+    width: 3px;
+}
+
+
+.milestone_252591{  /* 93 - Revert Judge"/prod check(本番確認)[GSF]  */
+    background : #ea9999;
+}
+.milestone_252590{  /* 91 - Done release(リリース済み) [GSF]  */
+    background : #a4c2f4;
+}
+.milestone_252589{  /* 90 - Waiting release(公開待ち) [SF]  */
+    background : #a4c2f4;
+}
+.milestone_252587{  /* 73 - Fix FB underway (FB修正中) [F]  */
+    background : #a4c2f4;
+}
+.milestone_252582{  /* 40 -  GGPE check (GGPE確認中) [G]  */
+    background : #ffe599;
+}
+.milestone_252581{  /* 33 - Develop underway (開発中) [F]  */
+    background : #a4c2f4;
+}
+.milestone_252580{  /* 32 - Waiting start develop (開発着手待ち) [F]  */
+    background : #a4c2f4;
+}
+.milestone_252579{ /* 31 - Setting Due date (期限日設定中) [F]   */
+    background : #a4c2f4;
+}
+.milestone_252578{  /* 30 - Team assign  (チームアサイン待ち) [F]  */
+    background : #a4c2f4;
+}
+.milestone_252577 { /* 緑   21 - Design underway (制作作業中) [S]   */
+    background : #b6d7a8;
+}
+.milestone_252576{ /* 緑   20 - Waiting start design (制作着手待ち) [S]  */
+    background : #b6d7a8;
+}
+.milestone_191409{ /* 緑   12-Design underway (制作作業中) */
+    background : #b6d7a8;
+}
+.milestone_252585{
+    background : #b6d7a8;
+}
+.milestone_252698{ /* 赤   11 - waiting stamp (仕様確定、ハンコ待ち)  [GSF]   */
+    background : #ea9999;
+}
+.milestone_252575{ /* 赤   10 - Making spec (仕様作成中)  [GSF]  */
+    background : #ea9999;
+}
+.milestone_252586{
+    background : #ea9999;
+}
+
+.milestone_197015{
+    background : #a4c2f4;
+}
+.milestone_197013{
+    background : #ffe599;
+}
+.milestone_252574{ /* 青   02 - Waiting make spec (仕様作成着手待ち)[SF] */
+    background : #a4c2f4;
+}
+.milestone_252573{ /* 黄色 01 - Requirement definition (要件定義) [G] */
+    background : #ffe599;
+}
+.milestone_252584{
+    background : #b6d7a8;
+}
+.milestone_252583{
+    background : #ea9999;
+}
+.notyet{
+    background: #2f2f2f;
+}
+
+/* 黄色 */
+.milestone_01,.milestone_40,.milestone_80{
+    background : #ffe599;
+}
+/* 青 */
+.milestone_02,.milestone_30,.milestone_31,.milestone_32,.milestone_33,.milestone_71,.milestone_73,.milestone_90,.milestone_91 {
+    background : #a4c2f4;
+}
+/* 赤 */
+.milestone_10,.milestone_11,.milestone_50,.milestone_93 {
+    background : #ea9999;
+}
+/* 緑 */
+.milestone_20,.milestone_21,.milestone_60,.milestone_61 {
+    background : #b6d7a8;
+}
+.table_milestone,.roletext{
+    color:#000;
+}
+.table_summary{
+    width: 300px;
+}
+.type_110386{
+	background: #b0be3c77;
+}
+.type_514995{
+	background: #868cb777;
+}
+.type_492448{
+	background: #f4285877;
+}
+.type_492450{
+	background: #e07b9a77;
+}
+.type_492449{
+	background: #868cb777;
+}
+.type_493804{
+	background: #4caf9377;
+}
+.type_110385{
+	background: #e8775877;
+}
+.type_493805{
+	background: #3b9dbd77;
+}
+.type_128600{
+	background: #39393977;
+}
+.glayout{
+    background: #5a5a5a;
+}
+.staff_list{
+    width: 200px;
+    color: #fff;
+}
+.plan{
+    color: #efddbc;
+    background: #0000;
+}
+.result{
+    color: #ef9e9e;
+    background: #0000;
+}
+.be_currenttask{
+    background: #883030;
+}
+.team_1{}
+.team_2{
+    color: #bcefc6;
+    background: #092401;
+}
+.team_3{
+    color: #d8d2f7;
+    background: #00042e;
+}
+.team_4{
+    color: #efbcc3;
+    background: #2a0000;
+}
+.team_5{
+    color: #efddbc;
+    background: #421803;
+}
+.team_6{}
+.team_7{
+    color: #000000;
+    background: #93cc2d;
+}
+.team_13{}
+.team_14{
+    color: #d9cdf7;
+    background: #011c24;
 }
