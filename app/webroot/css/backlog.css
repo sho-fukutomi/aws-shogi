@@ -193,6 +193,34 @@ h3{
 }
 
 
+/*
+//252601  99 - Close
+//252591  93 - Revert Judge\/prod check(本番確認)[GSF]
+//252590  91 - Done release(リリース済み) [GSF]
+//252589  90 - Waiting release(公開待ち) [SF]
+//252588  80 - GGPE Re-check (GGPE再確認中) [G]
+//252587  73 - Fix FB underway (FB修正中) [F]
+//252586  71 - Re-Setting Due date (期限日再設定中) [F]
+//252585  61 - FB Design underway (FB制作作業中) [S]
+//252584  60 - Waiting FB start design (FB制作着手待ち)
+//252583  50 - Making FB spec (FB仕様作成中) [GSF]
+//252582  40 -  GGPE check (GGPE確認中) [G]
+//252581  33 - Develop underway (開発中) [F]
+//252580  32 - Waiting start develop (開発着手待ち) [F]
+//252579  31 - Setting Due date (期限日設定中) [F]
+//252578  30 - Team assign  (チームアサイン待ち) [F]
+//252577  21 - Design underway (制作作業中) [S]
+//252576  20 - Waiting start design (制作着手待ち) [S]
+//252698  11 - waiting stamp (仕様確定、ハンコ待ち)  [GSF]
+//252575  10 - Making spec (仕様作成中)  [GSF]
+//252574  02 - Waiting make spec (仕様作成着手待ち)[SF]
+//252573  01 - Requirement definition (要件定義) [G]
+*/
+
+
+
+
+
 .milestone_252591{  /* 93 - Revert Judge"/prod check(本番確認)[GSF]  */
     background : #ea9999;
 }
@@ -202,8 +230,28 @@ h3{
 .milestone_252589{  /* 90 - Waiting release(公開待ち) [SF]  */
     background : #a4c2f4;
 }
+
+.milestone_252588{  /* 80 - GGPE Re-check (GGPE再確認中) [G]  */
+    background : #ffe599;
+}
+
 .milestone_252587{  /* 73 - Fix FB underway (FB修正中) [F]  */
     background : #a4c2f4;
+}
+
+.milestone_252586{  /*71 - Re-Setting Due date (期限日再設定中) [F] */
+    background : #ea9999;
+}
+
+.milestone_252585{ /* 61 - FB Design underway (FB制作作業中) [S]*/
+    background : #b6d7a8;
+}
+
+.milestone_252576{ /* 緑   60 - Waiting FB start design (FB制作着手待ち)   */
+    background : #b6d7a8;
+}
+.milestone_252583{ /*50 - Making FB spec (FB仕様作成中) [GSF] */
+    background : #ea9999;
 }
 .milestone_252582{  /* 40 -  GGPE check (GGPE確認中) [G]  */
     background : #ffe599;
@@ -227,9 +275,6 @@ h3{
     background : #b6d7a8;
 }
 .milestone_191409{ /* 緑   12-Design underway (制作作業中) */
-    background : #b6d7a8;
-}
-.milestone_252585{
     background : #b6d7a8;
 }
 .milestone_252698{ /* 赤   11 - waiting stamp (仕様確定、ハンコ待ち)  [GSF]   */
@@ -257,9 +302,7 @@ h3{
 .milestone_252584{
     background : #b6d7a8;
 }
-.milestone_252583{
-    background : #ea9999;
-}
+
 .notyet{
     background: #2f2f2f;
 }
@@ -331,6 +374,10 @@ h3{
 .be_currenttask{
     background: #883030;
 }
+.team_currenttask{
+    background: #883030;
+}
+
 .team_1{}
 .team_2{
     color: #bcefc6;
@@ -358,3 +405,30 @@ h3{
     color: #d9cdf7;
     background: #011c24;
 }
+.summary{
+    width: 30%;
+}
+
+/*
+//252601  99 - Close
+//252591  93 - Revert Judge\/prod check(本番確認)[GSF]
+//252590  91 - Done release(リリース済み) [GSF]
+//252589  90 - Waiting release(公開待ち) [SF]
+//252588  80 - GGPE Re-check (GGPE再確認中) [G]
+//252587  73 - Fix FB underway (FB修正中) [F]
+//252586  71 - Re-Setting Due date (期限日再設定中) [F]
+//252585  61 - FB Design underway (FB制作作業中) [S]
+//252584  60 - Waiting FB start design (FB制作着手待ち)
+//252583  50 - Making FB spec (FB仕様作成中) [GSF]
+//252582  40 -  GGPE check (GGPE確認中) [G]
+//252581  33 - Develop underway (開発中) [F]
+//252580  32 - Waiting start develop (開発着手待ち) [F]
+//252579  31 - Setting Due date (期限日設定中) [F]
+//252578  30 - Team assign  (チームアサイン待ち) [F]
+//252577  21 - Design underway (制作作業中) [S]
+//252576  20 - Waiting start design (制作着手待ち) [S]
+//252698  11 - waiting stamp (仕様確定、ハンコ待ち)  [GSF]
+//252575  10 - Making spec (仕様作成中)  [GSF]
+//252574  02 - Waiting make spec (仕様作成着手待ち)[SF]
+//252573  01 - Requirement definition (要件定義) [G]
+*/

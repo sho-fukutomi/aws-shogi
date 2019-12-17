@@ -665,17 +665,39 @@ class BacklogController extends AppController {
         foreach ($roles_tmp as $key => $value) {
             $roles[$value['fdc_role']['id']] = $value['fdc_role'];
         }
-        // debug($roles);
+        $members = $this->getMemberById();
 
-
+        $this->set('members',$members);
         $this->set('teamInfo',$teamInfo);
         $this->set('ticketList',$ticketList);
         $this->set('teamMembers',$teamMembers);
         $this->set('roles',$roles);
     }
+    public function updateTeamAssign(){
+        $this->log('testtest');
+
+    }
 
 
 
+    public function calendar(){
+
+
+
+
+    }
+
+
+
+    public function getMemberById(){
+        $members_tmp = $this->all_members->find('all');
+        $members = array();
+        foreach ($members_tmp as $key => $value) {
+            // debug();
+            $members[$value['all_members']['backlog_id']] = $value['all_members'];
+        }
+        return $members;
+    }
 
     public function settingmembers(){
         ini_set("memory_limit", "4000M");
