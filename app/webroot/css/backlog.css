@@ -193,6 +193,7 @@ h3{
 }
 
 
+<<<<<<< HEAD
 /*
 //252601  99 - Close
 //252591  93 - Revert Judge\/prod check(本番確認)[GSF]
@@ -221,6 +222,8 @@ h3{
 
 
 
+=======
+>>>>>>> origin/add_team_function
 .milestone_252591{  /* 93 - Revert Judge"/prod check(本番確認)[GSF]  */
     background : #ea9999;
 }
@@ -230,6 +233,7 @@ h3{
 .milestone_252589{  /* 90 - Waiting release(公開待ち) [SF]  */
     background : #a4c2f4;
 }
+<<<<<<< HEAD
 
 .milestone_252588{  /* 80 - GGPE Re-check (GGPE再確認中) [G]  */
     background : #ffe599;
@@ -253,6 +257,11 @@ h3{
 .milestone_252583{ /*50 - Making FB spec (FB仕様作成中) [GSF] */
     background : #ea9999;
 }
+=======
+.milestone_252587{  /* 73 - Fix FB underway (FB修正中) [F]  */
+    background : #a4c2f4;
+}
+>>>>>>> origin/add_team_function
 .milestone_252582{  /* 40 -  GGPE check (GGPE確認中) [G]  */
     background : #ffe599;
 }
@@ -277,6 +286,12 @@ h3{
 .milestone_191409{ /* 緑   12-Design underway (制作作業中) */
     background : #b6d7a8;
 }
+<<<<<<< HEAD
+=======
+.milestone_252585{
+    background : #b6d7a8;
+}
+>>>>>>> origin/add_team_function
 .milestone_252698{ /* 赤   11 - waiting stamp (仕様確定、ハンコ待ち)  [GSF]   */
     background : #ea9999;
 }
@@ -302,7 +317,13 @@ h3{
 .milestone_252584{
     background : #b6d7a8;
 }
+<<<<<<< HEAD
 
+=======
+.milestone_252583{
+    background : #ea9999;
+}
+>>>>>>> origin/add_team_function
 .notyet{
     background: #2f2f2f;
 }
@@ -374,10 +395,13 @@ h3{
 .be_currenttask{
     background: #883030;
 }
+<<<<<<< HEAD
 .team_currenttask{
     background: #883030;
 }
 
+=======
+>>>>>>> origin/add_team_function
 .team_1{}
 .team_2{
     color: #bcefc6;
@@ -405,6 +429,7 @@ h3{
     color: #d9cdf7;
     background: #011c24;
 }
+<<<<<<< HEAD
 .summary{
     width: 30%;
 }
@@ -432,3 +457,5 @@ h3{
 //252574  02 - Waiting make spec (仕様作成着手待ち)[SF]
 //252573  01 - Requirement definition (要件定義) [G]
 */
+=======
+>>>>>>> origin/add_team_function
