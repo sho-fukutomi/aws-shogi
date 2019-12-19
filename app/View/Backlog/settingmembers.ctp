@@ -26,7 +26,7 @@
 <?php //debug($teamMember)?>
                             <tr>
                                 <th class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['unique_key'] ?></th>
-                                <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['name'] ?> </td>
+                                <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <a href="/shogi/backlog/userinfo/<?php echo $teamMember['unique_key'] ?>"><?php echo $teamMember['name'] ?></a>  </td>
                                 <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?>" > <?php echo $teamMember['nick_name'] ?> </td>
                                 <td class="team_<?php echo $team['fdc_team']['id'] ?>_key_<?php echo $teamMember['unique_key'] ?> roletext" style="background:<?php echo $teamMember['role']['color'] ?>" > <?php echo $teamMember['role']['name']?> </td>
                                 <td>
@@ -73,7 +73,7 @@
                     <?php //debug($value)?>
                     <tr>
                         <th><?php echo $value['backlog_id']  ?></th>
-                        <td><?php echo $value['backlog_name'] ?></td>
+                        <td><a href="/shogi/backlog/userinfo/<?php echo $value['backlog_id'] ?>"><?php echo $value['backlog_name'] ?> </a></td>
                         <td>
                             <input type="text"class="textbox member_update_nick_name_<?php echo $value['backlog_id'] ?>" name="nick_name_<?php echo $value['backlog_id']  ?>" value="<?php echo $value['nickname'] ?>">
                         </td>

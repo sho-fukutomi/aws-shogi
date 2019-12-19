@@ -421,6 +421,12 @@ class BacklogController extends AppController {
             )
         ));
         switch ($userInfo['all_members']['role']) {
+            case '2':
+                $role = 'dev';
+                break;
+            case '3':
+                $role = 'tester';
+                break;
             case '4':
                 $role = 'be';
                 break;
@@ -447,7 +453,7 @@ class BacklogController extends AppController {
                 'order' => 'asc'
             )
         ));
-
+// debug($ticketInfo);
 
         $allMembers = $this->all_members->find('all',array(
             'fields' => array(
@@ -456,7 +462,7 @@ class BacklogController extends AppController {
             ),
             'conditions' => array(
                 'role' => array(
-                        4,30,40
+                        2,3,4,30,40
                 )
             )
         ));
@@ -657,7 +663,7 @@ class BacklogController extends AppController {
             'order' => 'order asc'
         ));
 
-        // debug($ticketList);
+         // debug($ticketList);
 
 
         $roles_tmp = $this->fdc_role->find('all',array());
@@ -673,8 +679,29 @@ class BacklogController extends AppController {
         $this->set('teamMembers',$teamMembers);
         $this->set('roles',$roles);
     }
-    public function updateTeamAssign(){
-        $this->log('testtest');
+    public function updateteamassign(){
+        $this->autoRender = false;
+
+        if(isset($_POST)){
+            $got_data = $_POST;
+            $check = $this->fdc_ticket_masters->find('first',array(
+                'conditions' => array(
+                    'key' => $got_data['target_ticket_id']
+                )
+            ));
+            $this->log($check);
+
+            if(!empty($check)){
+                $saveData = $check;
+                $saveData['fdc_ticket_masters']['dev'] = $got_data['dev_id'];
+                $saveData['fdc_ticket_masters']['tester'] = $got_data['tester_id'];
+                $this->fdc_ticket_masters->create();
+                if($this->fdc_ticket_masters->save($saveData)){
+                    echo "add success !";
+                }
+            }
+
+        }
 
     }
 
@@ -682,12 +709,171 @@ class BacklogController extends AppController {
 
     public function calendar(){
 
+        if(!empty($this->request->query['date'])){
+            $year_month = $this->request->query['date'];
+        }else{
+            $year_month = date("Y-m");
+        }
+
+        $week = array(
+            'Sun', //0
+            'Mon', //1
+            'Tue', //2
+            'Wed', //3
+            'Thu', //4
+            'Fri', //5
+            'Sat', //6
+        );
+
+        $year = substr($year_month,0,4);
+        $month = substr($year_month,5,2);
+        $final_date = $this->final_date($year,$month);
+
+        $lastmonth = $this->last_month($year,$month);
+        $nextmonth = $this->next_month($year,$month);
+
+        $start_timestamp = mktime(0,0,0,$month,1,$year);
+        $start_week = date("w",$start_timestamp);
+        $eng_month = date("F",$start_timestamp);
+
+        for ($i=0; $i <= 6 ; $i++) {
+            if($start_week == $i){
+                $adjustment_days = $i;
+            }
+        }
+        $column = $final_date + $adjustment_days;
+        $tr_count =  ceil(($adjustment_days + $final_date) / 7);
+
+        $startdate = $year_month."-01";
+        $enddate = $year_month."-".$final_date;
+
+
+        $this->fdc_ticket_masters->primaryKey = 'key';
+        $this->fdc_ticket_masters->bindModel(array(
+            'hasMany' => array(
+                'fdc_backlog_webhooks' => array(
+                    'className' => 'fdc_backlog_webhooks',
+                    'foreignKey' => 'backlog_id',
+                    'order' => 'time DESC',
+                    'fields' => array(
+                        'backlog_id',
+                        'summary',
+                        'milestone_id',
+                        'milestone_name',
+                        'issueType_id',
+                        'issueType_name',
+                        'created'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+        $tickets = $this->fdc_ticket_masters->find('all',array(
+            'conditions' => array(
+                'or' => array(
+                    'dev_start_plan         between ? and ?'  => array($startdate,$enddate),
+                    'dev_start_result       between ? and ?'  => array($startdate,$enddate),
+                    'dev_done_plan          between ? and ?'  => array($startdate,$enddate),
+                    'dev_done_result        between ? and ?'  => array($startdate,$enddate),
+                    'ggpe_check_done_plan   between ? and ?'  => array($startdate,$enddate),
+                    'ggpe_check_done_result between ? and ?'  => array($startdate,$enddate),
+                    'release_plan           between ? and ?'  => array($startdate,$enddate),
+                    'release_result         between ? and ?'  => array($startdate,$enddate),
+                ),
+                'status' => 1
+            )
+        ));
+
+        $result = array();
+
+
+        $datelist = array(
+            'dev_start_plan',
+            'dev_start_result',
+            'dev_done_plan',
+            'dev_done_result',
+            'ggpe_check_done_plan',
+            'ggpe_check_done_result',
+            'release_plan',
+            'release_result'
+        );
+
+
+        for ($i=1; $i <= $final_date ; $i++) {
+            $day = str_pad($i, 2, 0, STR_PAD_LEFT);
+            $target_date = $year_month."-".$day;
+            foreach ($tickets as $key => $value) {
+
+                foreach ($datelist as $key2 => $value2) {
+                    if($value['fdc_ticket_masters'][$value2] == $target_date){
+                        $result[$i][$value2][] = array(
+                            'text' => $value2,
+                            'summary' => $value['fdc_backlog_webhooks'][0]['summary'],
+                            'key' => $value['fdc_ticket_masters']['key'],
+                            'milestone_id' => $value['fdc_backlog_webhooks'][0]['milestone_id'],
+                            'milestone_name' => $value['fdc_backlog_webhooks'][0]['milestone_name']
+                        );
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        $this->set('adjustment_days',$adjustment_days);
+        $this->set('tr_count',$tr_count);
+        $this->set('final_date',$final_date);
+        $this->set('result',$result);
+        $this->set('datelist',$datelist);
+        $this->set('eng_month',$eng_month);
+        $this->set('lastmonth',$lastmonth);
+        $this->set('nextmonth',$nextmonth);
+    }
+
+    private function final_date($year,$month){
+        if($month==12){
+            $nextmonth = 1;
+            $nextyear = $year + 1 ;
+        }{
+            $nextmonth = $month + 1;
+            $nextyear = $year;
+        }
+        $lastdate = date("d", mktime(0,0,0,$nextmonth,1,$nextyear) - (60*60*24));
+        return $lastdate;
+
+    }
+
+    private function last_month($year,$month){
+        if($month <= 1){
+            $year = $year-1;
+            $month = 12;
+        }else{
+            $month = str_pad($month - 1, 2, 0, STR_PAD_LEFT);
+
+        }
+
+        return $year."-".$month ;
 
 
 
     }
 
+    private function next_month($year,$month){
+        if($month >= 12){
+            $year = $year+1;
+            $month = '01';
+        }else{
+            $month = str_pad($month + 1, 2, 0, STR_PAD_LEFT);
 
+        }
+
+        return $year."-".$month ;
+
+
+    }
 
     public function getMemberById(){
         $members_tmp = $this->all_members->find('all');
