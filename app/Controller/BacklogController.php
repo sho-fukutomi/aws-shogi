@@ -1,6 +1,24 @@
 <?php
 class BacklogController extends AppController {
-    public $uses = array('fdc_ticket_masters','all_members', 'fdc_team_member','fdc_role','fdc_backlog_webhook','test','rooms','historys','komas','fdc_members','fdc_cards','fdc_milestones','fdc_backlog_lists','fdc_list_list','fdc_webhook','fdc_team');
+    public $uses = array(
+        'fdc_ticket_masters',
+        'all_members',
+        'fdc_team_member',
+        'fdc_role',
+        'fdc_backlog_webhook',
+        'test',
+        'rooms',
+        'historys',
+        'komas',
+        'fdc_members',
+        'fdc_cards',
+        'fdc_milestones',
+        'fdc_backlog_lists',
+        'fdc_list_list',
+        'fdc_webhook',
+        'fdc_team',
+        'fdc_app_versions'
+    );
 
     function beforeFilter() {
         $this->GlobalVar_time_start = microtime(true);
@@ -102,6 +120,103 @@ class BacklogController extends AppController {
 
     }
 
+    public function sort_all(){
+
+
+        $this->fdc_ticket_masters->primaryKey = 'key';
+        $this->fdc_ticket_masters->bindModel(array(
+            'hasMany' => array(
+                'fdc_backlog_webhooks' => array(
+                    'className' => 'fdc_backlog_webhooks',
+                    'foreignKey' => 'backlog_id',
+                    'order' => 'time DESC',
+                    'fields' => array(
+                        'backlog_id',
+                        'summary',
+                        'milestone_id',
+                        'milestone_name',
+                        'issueType_id',
+                        'issueType_name',
+                        'created'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+
+        $ticketList = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+                'not' => array(
+                    'order_all' => NULL
+                )
+            ),
+            'order' => 'order_all asc'
+        ));
+
+        $newTicketList = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+                'order_all' => NULL
+            ),
+            'order' => 'order_all asc'
+        ));
+
+        $team_list = $this->fdc_team->find('all', array(
+            'conditions' => array(
+                'status' => 1
+            )
+        ));
+
+
+        $tmpbacklogMembers = $this->updateAndGetAllMembers();
+
+        $be_list = array();
+        $ggpe_list = array();
+        $design_list = array();
+
+        foreach ($tmpbacklogMembers as $key => $value) {
+            //debug($value);
+            if($value['all_members']['role'] == 4 ){
+                $be_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }elseif($value['all_members']['role'] == 30){
+                $design_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+
+            }elseif ($value['all_members']['role'] == 40) {
+                $ggpe_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }
+        }
+        $versions = array();
+        $versions_temp = $this->fdc_app_versions->find('all');
+        foreach ($versions_temp as $key => $value) {
+            $versions[$value['fdc_app_versions']['id']] = $value['fdc_app_versions'];
+        }
+
+        $platform = $this->getplatform();
+
+
+        // debug($ticketList);
+        // $this->set('arrayTicketList',$arrayTicketList);
+        $this->set('ticketList',$ticketList);
+        $this->set('team_list',$team_list);
+        $this->set('ticketList',$ticketList);
+        $this->set('newTicketList',$newTicketList);
+        $this->set('be_list',$be_list);
+        $this->set('design_list',$design_list);
+        $this->set('ggpe_list',$ggpe_list);
+        $this->set('versions',$versions);
+        $this->set('platform',$platform);
+
+    }
+    private function getplatform(){
+        $plarform = array(
+            1 => 'iOS',
+            2 => 'Android'
+        );
+
+        return $plarform;
+    }
     public function sort(){
 
         $team_list = $this->fdc_team->find('all',array(
@@ -139,7 +254,10 @@ class BacklogController extends AppController {
                     'order' => NULL
                 )
             ),
-            'order' => 'order asc'
+            'order' => array(
+                'order' => 'asc',
+                'parent' => 'asc'
+            )
         ));
 
         $newTicketList = $this->fdc_ticket_masters->find('all', array(
@@ -147,7 +265,10 @@ class BacklogController extends AppController {
                 'status' => 1,
                 'order' => NULL
             ),
-            'order' => 'order asc'
+            'order' => array(
+                'order' => 'asc',
+                'parent' => 'asc'
+            )
         ));
 
 
@@ -159,7 +280,10 @@ class BacklogController extends AppController {
                     'status' => 1,
                     'fdc_team' => $value['fdc_team']['id']
                 ),
-                'order' => 'order asc'
+                'order' => array(
+                    'order' => 'asc',
+                    'parent' => 'asc'
+                )
             ));
         }
 
@@ -168,7 +292,10 @@ class BacklogController extends AppController {
                 'status' => 1,
                 'fdc_team' => NULL
             ),
-            'order' => 'order asc'
+            'order' => array(
+                'order' => 'asc',
+                'parent' => 'asc'
+            )
         ));
 
         $team_list = $this->fdc_team->find('all', array(
@@ -194,6 +321,9 @@ class BacklogController extends AppController {
                 $ggpe_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
             }
         }
+
+
+        //debug($arrayTicketList);
 
         $this->set('arrayTicketList',$arrayTicketList);
         $this->set('team_list',$team_list);
@@ -689,12 +819,42 @@ class BacklogController extends AppController {
                     'key' => $got_data['target_ticket_id']
                 )
             ));
-            $this->log($check);
+            $this->log($got_data);
 
             if(!empty($check)){
+                $this->log($check);
                 $saveData = $check;
                 $saveData['fdc_ticket_masters']['dev'] = $got_data['dev_id'];
                 $saveData['fdc_ticket_masters']['tester'] = $got_data['tester_id'];
+
+
+                if(!empty($got_data['dev_start_plan'])){
+                    $saveData['fdc_ticket_masters']['dev_start_plan'] = $got_data['dev_start_plan'];
+                }
+                if(!empty($got_data['dev_start_result'])){
+                    $saveData['fdc_ticket_masters']['dev_start_result'] = $got_data['dev_start_result'];
+                }
+                if(!empty($got_data['dev_done_plan'])){
+                    $saveData['fdc_ticket_masters']['dev_done_plan'] = $got_data['dev_done_plan'];
+                }
+                if(!empty($got_data['dev_done_result'])){
+                    $saveData['fdc_ticket_masters']['dev_done_result'] = $got_data['dev_done_result'];
+                }
+                if(!empty($got_data['ggpe_check_done_plan'])){
+                    $saveData['fdc_ticket_masters']['ggpe_check_done_plan'] = $got_data['ggpe_check_done_plan'];
+                }
+                if(!empty($got_data['ggpe_check_done_result'])){
+                    $saveData['fdc_ticket_masters']['ggpe_check_done_result'] = $got_data['ggpe_check_done_result'];
+                }
+                if(!empty($got_data['release_plan'])){
+                    $saveData['fdc_ticket_masters']['release_plan'] = $got_data['release_plan'];
+                }
+                if(!empty($got_data['release_result'])){
+                    $saveData['fdc_ticket_masters']['release_result'] = $got_data['release_result'];
+                }
+
+
+               $this->log($saveData);
                 $this->fdc_ticket_masters->create();
                 if($this->fdc_ticket_masters->save($saveData)){
                     echo "add success !";
@@ -1008,6 +1168,59 @@ class BacklogController extends AppController {
         }
     }
 
+    public function align_child(){
+        $this->autoRender = false;
+
+
+        $tickets = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+                'NOT' => array(
+                    'parent' => NULL
+                )
+            )
+            // 'fields' => array(
+            //         'id',
+            //         'parent',
+            //         'key'
+            // )
+        ));
+
+        foreach ($tickets as $key => $value) {
+            $parents_id[] = $value['fdc_ticket_masters']['parent'];
+        };
+
+        $parents_orders = $this->fdc_ticket_masters->find('all',array(
+            'conditions' => array(
+                'key' => $parents_id
+            ),
+            'fields' => array(
+                'key',
+                'order'
+            )
+        ));
+
+        $parents_orders_list = array();
+        foreach ($parents_orders as $key => $value) {
+            $parents_orders_list[$value['fdc_ticket_masters']['key']] = $value['fdc_ticket_masters']['order'] ;
+        }
+
+        foreach ($tickets as $key => $value) {
+            $tickets[$key]['fdc_ticket_masters']['order'] = $parents_orders_list[$value['fdc_ticket_masters']['parent']];
+        }
+
+
+        $this->fdc_ticket_masters->create();
+        if($this->fdc_ticket_masters->saveAll($tickets)){
+            echo "add success !";
+        }
+        // $this->log($this->fdc_ticket_masters->save($tickets));
+
+
+        // echo 'huhuhuhu';
+    }
+
+
     public function updatebysort(){
         //getinfoよりコールされるAjax受け取り用function
         //レンダリング不要
@@ -1028,14 +1241,43 @@ class BacklogController extends AppController {
                 $saveData['fdc_ticket_masters']['ggpe'] = $got_data['ggpe_id'];
                 $saveData['fdc_ticket_masters']['design'] = $got_data['design_id'];
                 $saveData['fdc_ticket_masters']['fdc_team'] = $got_data['team_id'];
-                $saveData['fdc_ticket_masters']['dev_start_plan'] = $got_data['dev_start_plan'];
-                $saveData['fdc_ticket_masters']['dev_start_result'] = $got_data['dev_start_result'];
-                $saveData['fdc_ticket_masters']['dev_done_plan'] = $got_data['dev_done_plan'];
-                $saveData['fdc_ticket_masters']['dev_done_result'] = $got_data['dev_done_result'];
-                $saveData['fdc_ticket_masters']['ggpe_check_done_plan'] = $got_data['ggpe_check_done_plan'];
-                $saveData['fdc_ticket_masters']['ggpe_check_done_result'] = $got_data['ggpe_check_done_result'];
-                $saveData['fdc_ticket_masters']['release_plan'] = $got_data['release_plan'];
-                $saveData['fdc_ticket_masters']['release_result'] = $got_data['release_result'];
+
+
+                if($check['fdc_ticket_masters']['fdc_team'] != $saveData['fdc_ticket_masters']['fdc_team']){
+                    // debug($check['fdc_ticket_masters']['fdc_team']);
+                    $saveData['fdc_ticket_masters']['order'] = 9999;
+                }
+
+                if(!empty($got_data['dev_start_plan'])){
+                    $saveData['fdc_ticket_masters']['dev_start_plan'] = $got_data['dev_start_plan'];
+                }
+                if(!empty($got_data['dev_start_result'])){
+                    $saveData['fdc_ticket_masters']['dev_start_result'] = $got_data['dev_start_result'];
+                }
+                if(!empty($got_data['dev_done_plan'])){
+                    $saveData['fdc_ticket_masters']['dev_done_plan'] = $got_data['dev_done_plan'];
+                }
+                if(!empty($got_data['dev_done_result'])){
+                    $saveData['fdc_ticket_masters']['dev_done_result'] = $got_data['dev_done_result'];
+                }
+                if(!empty($got_data['ggpe_check_done_plan'])){
+                    $saveData['fdc_ticket_masters']['ggpe_check_done_plan'] = $got_data['ggpe_check_done_plan'];
+                }
+                if(!empty($got_data['ggpe_check_done_result'])){
+                    $saveData['fdc_ticket_masters']['ggpe_check_done_result'] = $got_data['ggpe_check_done_result'];
+                }
+                if(!empty($got_data['release_plan'])){
+                    $saveData['fdc_ticket_masters']['release_plan'] = $got_data['release_plan'];
+                }
+                if(!empty($got_data['release_result'])){
+                    $saveData['fdc_ticket_masters']['release_result'] = $got_data['release_result'];
+                }
+                if(!empty($got_data['parent'])){
+                    $saveData['fdc_ticket_masters']['parent'] = $got_data['parent'];
+                }
+
+
+        //        debug($saveData);
                 $this->fdc_ticket_masters->create();
                 if($this->fdc_ticket_masters->save($saveData)){
                     echo "add success !";
