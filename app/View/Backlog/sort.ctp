@@ -8,6 +8,16 @@
 </head>
 
 <?php echo $this->element('menu_backlog'); ?>
+<div class="abridged_pass_system">
+    <div>
+        <input type="password"  id="abridged_pass_system"/>
+
+    </div>
+    <div>
+        <button id="align_child" > organize children </button>
+    </div>
+</div>
+
 <?php $teamcount = 0 ?>
 <?php foreach ($arrayTicketList as $key => $newTicketList): ?>
     <?php if(empty($newTicketList)){ continue ;} ?>
@@ -16,8 +26,10 @@
         <thead>
             <tr>
                 <th>Order</th>
+                <th></th>
                 <th>Type</th>
                 <th>key</th>
+                <th>parent</th>
                 <th>summary</th>
                 <th class="milestone"></th>
                 <th class="milestone"></th>
@@ -56,10 +68,32 @@
             <?php $num = 1; ?>
             <?php foreach($newTicketList as $key => $tickets): ?>
                 <?php  //debug($tickets)?>
-                <tr id=raw_<?php echo $teamcount.'_'.$key?> >
-                    <th name=num_data class="team_<?php echo $tickets['fdc_ticket_masters']['fdc_team']?>"><?php echo $num++  //$tickets['fdc_ticket_masters']['order'] ?></th>
+
+
+                <?php if (!empty($tickets['fdc_ticket_masters']['parent'])) : ?>
+                    <tr id=raw class="children">
+                        <td name=num_data ><?php echo $num++ ?></th>
+                <?php else: ?>
+                    <tr id=raw_<?php echo $teamcount.'_'.$key?> >
+                        <th name=num_data class="team_<?php echo $tickets['fdc_ticket_masters']['fdc_team']?>"><?php echo $num++ ?></th>
+                <?php endif;?>
+
+                    <td class="New">
+                        <?php if (((strtotime(date("Y-m-d H:i:s")) - strtotime($tickets['fdc_ticket_masters']['created'])) / 86400) <= 7 ): ?>
+                            New!
+                        <?php endif; ?>
+                    </td>
+                <?php if (!empty($tickets['fdc_ticket_masters']['parent'])) : ?>
+                    <td>∟</td>
+                <?php else: ?>
                     <td class="type_<?php echo !empty($tickets['fdc_backlog_webhooks']) ?  $tickets['fdc_backlog_webhooks'][0]['issueType_id'] : "9999" ?>"><?php echo !empty($tickets['fdc_backlog_webhooks']) ? $tickets['fdc_backlog_webhooks'][0]['issueType_name'] :"" ?></td>
+                <?php endif;?>
+
+
                     <td class=ticket_no > <a href="ticketinfo/<?php echo $tickets['fdc_ticket_masters']['key'] ?>" target="_blank"><?php echo $tickets['fdc_ticket_masters']['key'] ?></a></td>
+                    <td>
+                        <input type="text"class="textbox update_parent_<?php echo $tickets['fdc_ticket_masters']['key'] ?>" name="set_parent<?php echo $tickets['fdc_ticket_masters']['key']  ?>" value="<?php echo $tickets['fdc_ticket_masters']['parent'] ?>">
+                    </td>
                     <td class="table_summary"  ><?php echo !empty($tickets['fdc_backlog_webhooks']) ? $tickets['fdc_backlog_webhooks'][0]['summary'] : ''  ?>  </td>
                     <td class="<?php echo !empty($tickets['fdc_backlog_webhooks']) ? substr($tickets['fdc_backlog_webhooks'][0]['milestone_name'],0,2) >= 01 ? 'milestone_01': 'notyet' : 'notyet'?> milestone"></td>
                     <td class="<?php echo !empty($tickets['fdc_backlog_webhooks']) ? substr($tickets['fdc_backlog_webhooks'][0]['milestone_name'],0,2) >= 02 ? 'milestone_02': 'notyet' : 'notyet'?> milestone"></td>
@@ -185,12 +219,18 @@
 
 
         <?php for ($i = 0; $i <= $teamcount; $i++): ?>
+
+
+
             $('#sortdata<?php echo $i?>').sortable();
+
+
 
             // sortstopイベントをバインド
             $('#sortdata<?php echo $i?>').bind('sortstop',function(){
                 // 番号を設定している要素に対しループ処理
 
+            if($('#abridged_pass_system').val() == "perfume"){
                 console.log($(this).find('[name="num_data"]'));
                 $(this).find('[name="num_data"]').each(function(index,element){
                     $(this).html(index+1);
@@ -213,16 +253,11 @@
                         console.log(j_data);
                     }
                 });
+                }
+
 
             });
         <?php endfor;?>
-
-
-
-
-
-
-
 
 
     $(".editbutton").on('click',function(){
@@ -244,6 +279,9 @@
             ggpe_check_done_result = $(".ggpe_check_done_result_" + target_ticket_id).val();
             release_plan = $(".release_plan_" + target_ticket_id).val();
             release_result = $(".release_result_" + target_ticket_id).val();
+
+            parent = $(".update_parent_" + target_ticket_id).val();
+
 
             console.log(be_id);
             console.log(ggpe_id);
@@ -274,7 +312,8 @@
                    "ggpe_check_done_plan" :ggpe_check_done_plan,
                    "ggpe_check_done_result" : ggpe_check_done_result,
                    "release_plan" : release_plan,
-                   "release_result" : release_result
+                   "release_result" : release_result,
+                   "parent" : parent
                }
            }
 
@@ -297,6 +336,26 @@
         }
 
     });
+
+    $("#align_child").on('click',function(){
+        console.log("いえーい");
+        if($('#abridged_pass_system').val() == "perfume"){
+
+        console.log("うえーい");
+        $.ajax({
+            url:'./align_child',
+            type:'POST',
+            data:"aaaa",
+            success: function(j_data){ 
+                // 処理を記述
+                console.log(j_data);
+            }
+        });
+
+
+        }
+    });
+
 
 
 

@@ -159,10 +159,28 @@
         dev_id = $(".dev_id_" + target_ticket_id).val();
         tester_id =  $(".tester_id_" + target_ticket_id).val();
 
+
+        dev_start_plan = $(".dev_start_plan_" + target_ticket_id).val();
+        dev_start_result = $(".dev_start_result_" + target_ticket_id).val();
+        dev_done_plan = $(".dev_done_plan_" + target_ticket_id).val();
+        dev_done_result = $(".dev_done_result_" + target_ticket_id).val();
+        ggpe_check_done_plan = $(".ggpe_check_done_plan_" + target_ticket_id).val();
+        ggpe_check_done_result = $(".ggpe_check_done_result_" + target_ticket_id).val();
+        release_plan = $(".release_plan_" + target_ticket_id).val();
+        release_result = $(".release_result_" + target_ticket_id).val();
+
         post_flg = 1;
 
         console.log(dev_id);
         console.log(tester_id);
+        console.log(dev_start_plan);
+        console.log(dev_start_result);
+        console.log(dev_done_plan);
+        console.log(dev_done_result);
+        console.log(ggpe_check_done_plan);
+        console.log(ggpe_check_done_result);
+        console.log(release_plan);
+        console.log(release_result);
 
         if(target_ticket_id) {
 
@@ -175,7 +193,15 @@
                post_data = {
                    "target_ticket_id" : target_ticket_id,
                    "dev_id" : dev_id,
-                   "tester_id" : tester_id
+                   "tester_id" : tester_id,
+                   'dev_start_plan' : dev_start_plan,
+                   'dev_start_result':dev_start_result,
+                   'dev_done_plan':dev_done_plan,
+                   'dev_done_result':dev_done_result,
+                   'ggpe_check_done_plan':ggpe_check_done_plan,
+                   'ggpe_check_done_result':ggpe_check_done_result,
+                   'release_plan':release_plan,
+                    'release_result':release_result
                }
            }
 
@@ -184,6 +210,9 @@
 
         }
         console.log('post_flg=' + post_flg );
+
+
+
 
         if(post_flg == 1){
             console.log(post_data)
