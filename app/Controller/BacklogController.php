@@ -809,6 +809,208 @@ class BacklogController extends AppController {
         $this->set('teamMembers',$teamMembers);
         $this->set('roles',$roles);
     }
+
+
+    public function fdc_staff(){
+
+        $teamInfo = $this->fdc_team->find('all',array(
+            'conditions' => array(
+                'status' => 1
+            )
+        ));
+        $fdc_members_list = $this->fdc_team_member->find('all',array());
+
+        $this->fdc_team_member->primaryKey = 'members_id';
+        $this->fdc_team_member->bindModel(array(
+            'hasOne' => array(
+                'all_members' => array(
+                    'className' => 'all_members',
+                    'foreignKey' => 'backlog_id',
+                    // 'order' => 'time DESC',
+
+                    'fields' => array(
+                        'backlog_name',
+                        'nickname',
+                        'role'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+        $teamMembers = $this->fdc_team_member->find('all',array(
+
+        ));
+
+//
+
+        $teamname = array();
+        foreach ($teamInfo as $key => $value) {
+            $teamname[$value['fdc_team']['id']] = $value['fdc_team']['name'];
+        }
+        //debug($teamname);
+
+// $fdc_members_list
+
+
+// debug($teamMembers);
+        $memberByid = array();
+        $memberByTeam = array();
+        foreach ($teamMembers as $key => $value) {
+            $memberByTeam[$value['fdc_team_member']['team_id']][$value['fdc_team_member']['members_id']] = array(
+                'members_id' => $value['fdc_team_member']['members_id'],
+                'name' => $value['all_members']['backlog_name'],
+                'role' => $value['all_members']['role']
+            );
+            $memberByid[$value['fdc_team_member']['members_id']] = array(
+                'name' => $value['all_members']['backlog_name'],
+                'role' => $value['all_members']['role']
+            );
+
+
+        }
+
+
+        $this->fdc_ticket_masters->primaryKey = 'key';
+        $this->fdc_ticket_masters->bindModel(array(
+            'hasMany' => array(
+                'fdc_backlog_webhooks' => array(
+                    'className' => 'fdc_backlog_webhooks',
+                    'foreignKey' => 'backlog_id',
+                    'order' => 'time DESC',
+                    'fields' => array(
+                        'fdc_task',
+                        'backlog_id',
+                        'summary',
+                        'milestone_id',
+                        'milestone_name',
+                        'issueType_id',
+                        'issueType_name',
+                        'created'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+        $ticketList = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+            ),
+            'order' => 'order asc'
+        ));
+
+
+        //debug($memberByTeam);
+
+        // debug($memberByid);
+
+        $confirmation_required_list = array();
+        $issue_list = array();
+
+
+        foreach ($memberByTeam as $key => $team) {
+            foreach ($team as $key => $value) {
+                if ($value['role'] == 2) {
+                    $issue_list['dev'][$value['members_id']] = array();
+                }elseif ($value['role'] == 3) {
+                    $issue_list['tester'][$value['members_id']] = array();
+                }
+            }
+        }
+
+
+        foreach ($ticketList as $key => $value) {
+            if(!empty($value['fdc_backlog_webhooks'][0]['milestone_id'])){
+                if(
+                    $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252579 || // 期限日設定中
+                    // $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252591 || // 本番確認中
+                    $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252587 || // FB
+                    $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252586 || // 期限日再設定中
+                    $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252581 // 開発中
+                ){
+                    if(
+                        $value['fdc_ticket_masters']['fdc_team'] == NULL  ||
+                        $value['fdc_ticket_masters']['dev'] == NULL ||
+                        $value['fdc_ticket_masters']['tester'] == NULL
+                    ){
+                        $confirmation_required_list[] = array(
+                            'key' => $value['fdc_ticket_masters']['key'],
+                            'summary' => $value['fdc_backlog_webhooks'][0]['summary'],
+                            'dev_start_plan' => $value['fdc_ticket_masters']['dev_start_plan'],
+                            'dev_start_result' => $value['fdc_ticket_masters']['dev_start_result'],
+                            'dev_done_plan' => $value['fdc_ticket_masters']['dev_done_plan'],
+                            'dev_done_result' => $value['fdc_ticket_masters']['dev_done_result'],
+                            'ggpe_check_done_plan' => $value['fdc_ticket_masters']['ggpe_check_done_plan'],
+                            'ggpe_check_done_result' => $value['fdc_ticket_masters']['ggpe_check_done_result'],
+                            'release_plan' => $value['fdc_ticket_masters']['release_plan'],
+                            'release_result' => $value['fdc_ticket_masters']['release_result'],
+                            'milestone_id' => $value['fdc_backlog_webhooks'][0]['milestone_id'],
+                            'milestone_name' => $value['fdc_backlog_webhooks'][0]['milestone_name'],
+                            'dev' => $value['fdc_ticket_masters']['dev'] ? $memberByid[$value['fdc_ticket_masters']['dev']]['name'] : $value['fdc_ticket_masters']['dev'],
+                            'tester' => $value['fdc_ticket_masters']['tester'] ? $memberByid[$value['fdc_ticket_masters']['tester']]['name'] : $value['fdc_ticket_masters']['tester'],
+                            'fdc_team' => $value['fdc_ticket_masters']['fdc_team'],
+                            'order' => $value['fdc_ticket_masters']['order'],
+                            'be' => $value['fdc_ticket_masters']['be'] ? $memberByid[$value['fdc_ticket_masters']['be']]['name']  : $value['fdc_ticket_masters']['be'] ,
+
+                        );
+                    }else{
+                        // debug($value);
+
+                        $issue_list['dev'][$value['fdc_ticket_masters']['dev']][] = array(
+                            'key' => $value['fdc_ticket_masters']['key'],
+                            'summary' => $value['fdc_backlog_webhooks'][0]['summary'],
+                            'dev_start_plan' => $value['fdc_ticket_masters']['dev_start_plan'],
+                            'dev_start_result' => $value['fdc_ticket_masters']['dev_start_result'],
+                            'dev_done_plan' => $value['fdc_ticket_masters']['dev_done_plan'],
+                            'dev_done_result' => $value['fdc_ticket_masters']['dev_done_result'],
+                            'ggpe_check_done_plan' => $value['fdc_ticket_masters']['ggpe_check_done_plan'],
+                            'ggpe_check_done_result' => $value['fdc_ticket_masters']['ggpe_check_done_result'],
+                            'release_plan' => $value['fdc_ticket_masters']['release_plan'],
+                            'release_result' => $value['fdc_ticket_masters']['release_result'],
+                            'milestone_id' => $value['fdc_backlog_webhooks'][0]['milestone_id'],
+                            'milestone_name' => $value['fdc_backlog_webhooks'][0]['milestone_name'],
+                            'member_name' => $memberByid[$value['fdc_ticket_masters']['dev']]['name'],
+                            'fdc_team' => $value['fdc_ticket_masters']['fdc_team'],
+                            'order' => $value['fdc_ticket_masters']['order'],
+                        );
+                        $issue_list['tester'][$value['fdc_ticket_masters']['tester']][] = array(
+                            'key' => $value['fdc_ticket_masters']['key'],
+                            'summary' => $value['fdc_backlog_webhooks'][0]['summary'],
+                            'dev_start_plan' => $value['fdc_ticket_masters']['dev_start_plan'],
+                            'dev_start_result' => $value['fdc_ticket_masters']['dev_start_result'],
+                            'dev_done_plan' => $value['fdc_ticket_masters']['dev_done_plan'],
+                            'dev_done_result' => $value['fdc_ticket_masters']['dev_done_result'],
+                            'ggpe_check_done_plan' => $value['fdc_ticket_masters']['ggpe_check_done_plan'],
+                            'ggpe_check_done_result' => $value['fdc_ticket_masters']['ggpe_check_done_result'],
+                            'release_plan' => $value['fdc_ticket_masters']['release_plan'],
+                            'release_result' => $value['fdc_ticket_masters']['release_result'],
+                            'milestone_id' => $value['fdc_backlog_webhooks'][0]['milestone_id'],
+                            'milestone_name' => $value['fdc_backlog_webhooks'][0]['milestone_name'],
+                            'member_name' => $memberByid[$value['fdc_ticket_masters']['tester']]['name'],
+                            'fdc_team' => $value['fdc_ticket_masters']['fdc_team'],
+                            'order' => $value['fdc_ticket_masters']['order'],
+                        );
+
+                    }
+
+                }
+            }
+        }
+
+
+        // debug($issue_list);
+        $this->set('memberByid',$memberByid);
+        $this->set('teamname',$teamname);
+        $this->set('issue_list',$issue_list);
+        $this->set('confirmation_required_list',$confirmation_required_list);
+
+
+    }
+
+
+
+
     public function updateteamassign(){
         $this->autoRender = false;
 
