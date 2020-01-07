@@ -901,18 +901,30 @@ class BacklogController extends AppController {
         ));
 
 
-        // debug($memberByTeam);
+        //debug($memberByTeam);
 
-        // debug($ticketList);
+        // debug($memberByid);
 
-         $confirmation_required_list = array();
-         $issue_list = array();
+        $confirmation_required_list = array();
+        $issue_list = array();
 
-         foreach ($ticketList as $key => $value) {
+
+        foreach ($memberByTeam as $key => $team) {
+            foreach ($team as $key => $value) {
+                if ($value['role'] == 2) {
+                    $issue_list['dev'][$value['members_id']] = array();
+                }elseif ($value['role'] == 3) {
+                    $issue_list['tester'][$value['members_id']] = array();
+                }
+            }
+        }
+
+
+        foreach ($ticketList as $key => $value) {
             if(!empty($value['fdc_backlog_webhooks'][0]['milestone_id'])){
                 if(
                     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252579 || // 期限日設定中
-                    $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252591 || // 本番確認中
+                    // $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252591 || // 本番確認中
                     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252587 || // FB
                     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252586 || // 期限日再設定中
                     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252581 // 開発中
@@ -922,7 +934,26 @@ class BacklogController extends AppController {
                         $value['fdc_ticket_masters']['dev'] == NULL ||
                         $value['fdc_ticket_masters']['tester'] == NULL
                     ){
-                        $confirmation_required_list[] = $value;
+                        $confirmation_required_list[] = array(
+                            'key' => $value['fdc_ticket_masters']['key'],
+                            'summary' => $value['fdc_backlog_webhooks'][0]['summary'],
+                            'dev_start_plan' => $value['fdc_ticket_masters']['dev_start_plan'],
+                            'dev_start_result' => $value['fdc_ticket_masters']['dev_start_result'],
+                            'dev_done_plan' => $value['fdc_ticket_masters']['dev_done_plan'],
+                            'dev_done_result' => $value['fdc_ticket_masters']['dev_done_result'],
+                            'ggpe_check_done_plan' => $value['fdc_ticket_masters']['ggpe_check_done_plan'],
+                            'ggpe_check_done_result' => $value['fdc_ticket_masters']['ggpe_check_done_result'],
+                            'release_plan' => $value['fdc_ticket_masters']['release_plan'],
+                            'release_result' => $value['fdc_ticket_masters']['release_result'],
+                            'milestone_id' => $value['fdc_backlog_webhooks'][0]['milestone_id'],
+                            'milestone_name' => $value['fdc_backlog_webhooks'][0]['milestone_name'],
+                            'dev' => $value['fdc_ticket_masters']['dev'] ? $memberByid[$value['fdc_ticket_masters']['dev']]['name'] : $value['fdc_ticket_masters']['dev'],
+                            'tester' => $value['fdc_ticket_masters']['tester'] ? $memberByid[$value['fdc_ticket_masters']['tester']]['name'] : $value['fdc_ticket_masters']['tester'],
+                            'fdc_team' => $value['fdc_ticket_masters']['fdc_team'],
+                            'order' => $value['fdc_ticket_masters']['order'],
+                            'be' => $value['fdc_ticket_masters']['be'] ? $memberByid[$value['fdc_ticket_masters']['be']]['name']  : $value['fdc_ticket_masters']['be'] ,
+
+                        );
                     }else{
                         // debug($value);
 
@@ -968,10 +999,11 @@ class BacklogController extends AppController {
         }
 
 
-        //debug($issue_list);
-
+        // debug($issue_list);
+        $this->set('memberByid',$memberByid);
         $this->set('teamname',$teamname);
         $this->set('issue_list',$issue_list);
+        $this->set('confirmation_required_list',$confirmation_required_list);
 
 
     }

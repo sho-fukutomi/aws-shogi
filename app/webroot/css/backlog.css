@@ -38,7 +38,7 @@ a:active { color: #ff8000; }
 }
 
 .column {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
 }
 .cat1 {
