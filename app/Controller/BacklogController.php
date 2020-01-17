@@ -628,6 +628,9 @@ class BacklogController extends AppController {
 
     }
 
+
+
+
     public function fdc_task(){
         //詳細情報出すために、マスターにwebhookからの受け取りを紐づける
         $this->fdc_ticket_masters->primaryKey = 'key';
@@ -1004,6 +1007,11 @@ class BacklogController extends AppController {
         $this->set('teamname',$teamname);
         $this->set('issue_list',$issue_list);
         $this->set('confirmation_required_list',$confirmation_required_list);
+
+
+    }
+
+    public function design_team(){
 
 
     }
@@ -1474,7 +1482,7 @@ class BacklogController extends AppController {
                 if(!empty($got_data['release_result'])){
                     $saveData['fdc_ticket_masters']['release_result'] = $got_data['release_result'];
                 }
-                if(!empty($got_data['parent'])){
+                if(isset($got_data['parent'])){
                     $saveData['fdc_ticket_masters']['parent'] = $got_data['parent'];
                 }
 
@@ -1600,7 +1608,7 @@ class BacklogController extends AppController {
             $decoded_body = json_decode($body,true);
 
 
-
+            $design_flg = 0;
             $fdc_flg = 0;
             foreach($decoded_body['content']['category'] as $key => $value) {
                 // $this->log($value);
@@ -1610,6 +1618,8 @@ class BacklogController extends AppController {
                 || $value['id'] == 204445 //Android
                  ){
                     $fdc_flg = 1;
+                }elseif ($value['id']== 50753 ) { // 制作
+                    $design_flg = 1;
                 }
             }
 
@@ -1620,6 +1630,7 @@ class BacklogController extends AppController {
             $result['milestone_id'] = $decoded_body['content']['milestone'][0]['id'];
             $result['milestone_name'] = $decoded_body['content']['milestone'][0]['name'];
             $result['fdc_task'] = $fdc_flg;
+            $result['design_task'] = $design_flg;
             $result['time'] =  date("Y-m-d H:i:s");
 
             $this->fdc_backlog_webhook->save($result);
@@ -1712,7 +1723,6 @@ class BacklogController extends AppController {
                 $finalResult[$value['issueKey']] = $value;
             }
         }
-
         //チケットマスターからenableなチケット一覧を取得
         $tmp_ticketMasters = $this->fdc_ticket_masters->find('all',array(
             'conditions' => array(
@@ -1727,6 +1737,7 @@ class BacklogController extends AppController {
 
         //backlogからのチケットリスト毎に、チケットマスターの存在確認
         foreach ($finalResult as $key => $value) {
+        //    debug($value);
             //チケットマスターに存在している場合、追加情報を付与
             if(isset($ticketMasters[$key])){
                 // debug('heyhey');
@@ -1736,6 +1747,42 @@ class BacklogController extends AppController {
                 $finalResult[$key]['be'] = $ticketMasters[$key]['fdc_ticket_masters']['be'];
                 $finalResult[$key]['ggpe'] = $ticketMasters[$key]['fdc_ticket_masters']['ggpe'];
                 $finalResult[$key]['design'] = $ticketMasters[$key]['fdc_ticket_masters']['design'];
+
+
+
+                // debug($ticketMasters[$key]['fdc_ticket_masters']['fdc_task']);
+                // debug($ticketMasters[$key]['fdc_ticket_masters']['design_task']);
+
+                //チケットマスター更新情報
+                $fdc_flg = 0;
+                $design_flg = 0;
+                if (!empty($value['category'])) {
+                    foreach ($value['category'] as $category_key => $category) {
+                        // $this->log($value);
+                        if($category['id']== 50751    //FDC
+                        || $category['id'] == 124975   //iOS
+                        || $category['id'] == 220480   //API
+                        || $category['id'] == 204445 //Android
+                         ){
+                            $fdc_flg = 1;
+                        }
+                        if ($category['id']== 50753 ) { // 制作
+                            $design_flg = 1;
+                        }
+
+                        if($fdc_flg || $design_flg){
+                            $saveData[] = array('fdc_ticket_masters' => array(
+                                // 'summary' => $value['summary']
+                                'id' => $ticketMasters[$key]['fdc_ticket_masters']['id'],
+                                'key' => $value['issueKey'],
+                                'status' => 1,
+                                'fdc_task' => $fdc_flg,
+                                'design_task' => $design_flg
+                            ));
+                        }
+                    }
+                }
+
             }else{
                 //チケットマスターにenable状態で存在していない場合
                 //まずはdisable状態でいるかどうかを確認
@@ -1751,11 +1798,30 @@ class BacklogController extends AppController {
                 if(empty($checkData)){
                     //disable状態でも存在していないということは新規チケット
                     //新しくマスタに追加する
+                    $fdc_flg = 0;
+                    $design_flg = 0;
+                    if (!empty($value['category'])) {
+                        foreach ($value['category'] as $category_key => $category) {
+                            // $this->log($value);
+                            if($category['id']== 50751    //FDC
+                            || $category['id'] == 124975   //iOS
+                            || $category['id'] == 220480   //API
+                            || $category['id'] == 204445 //Android
+                             ){
+                                $fdc_flg = 1;
+                            }
+                            if ($category['id']== 50753 ) { // 制作
+                                $design_flg = 1;
+                            }
+                        }
+                    }
                     $saveData[] = array('fdc_ticket_masters' => array(
+                        // 'summary' => $value['summary']
 
                         'key' => $value['issueKey'],
                         'status' => 1,
-                        // 'summary' => $value['summary']
+                        'fdc_task' => $fdc_flg,
+                        'design_task' => $design_flg
                     ));
                 }else{
                     //disable状態でマスタに存在してる場合はenableに戻す
@@ -1765,6 +1831,10 @@ class BacklogController extends AppController {
                 }
             }
         }
+//debug($saveData);
+// debug($updateData);
+
+
 
         //追加かアップデート、または両方、対象のデータがあった場合DB更新
         if(!empty($saveData)){

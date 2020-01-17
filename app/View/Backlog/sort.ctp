@@ -120,6 +120,10 @@
                         <?php echo !empty($tickets['fdc_backlog_webhooks']) ? $tickets['fdc_backlog_webhooks'][0]['milestone_name'] : ''  ?>
                     </td>
                     <?php $date_enterable = !empty($tickets['fdc_backlog_webhooks']) ? substr($tickets['fdc_backlog_webhooks'][0]['milestone_name'],0,2) < 31 ? 'not yet': 'show' : 'no data' ?>
+                    <?php $date_enterable = !empty($tickets['fdc_backlog_webhooks']) ? substr($tickets['fdc_backlog_webhooks'][0]['milestone_name'],0,2) == 21 ? 'show': $date_enterable : 'no data' ?>
+
+
+
                     </td>
                     <td>
                         <?php if ($date_enterable == 'show'): ?>
