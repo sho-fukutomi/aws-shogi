@@ -8,5 +8,8 @@
     <td><a href="/shogi/backlog/fdc_team/2">Long Team team</a></td>
     <td><a href="/shogi/backlog/fdc_team/3">Short Team team</a></td>
     <td><a href="/shogi/backlog/fdc_team/4">BUG & SQL team</a></td>
+    <td><a href="/shogi/backlog/design_team">design team</a></td>
+    <td><a href="/shogi/backlog/fdc_staff">FDC staff</a></td>
+
 
 </table>

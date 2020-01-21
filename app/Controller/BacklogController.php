@@ -719,9 +719,6 @@ class BacklogController extends AppController {
         $this->set('tsuchie_tasks',$tsuchie_tasks);
         $this->set('be_task',$be_task);
 
-
-
-
     }
 
     public function fdc_team($teamId){
@@ -1004,6 +1001,142 @@ class BacklogController extends AppController {
         $this->set('teamname',$teamname);
         $this->set('issue_list',$issue_list);
         $this->set('confirmation_required_list',$confirmation_required_list);
+
+
+    }
+
+    public function design_team(){
+
+
+
+
+
+
+        //詳細情報出すために、マスターにwebhookからの受け取りを紐づける
+        $this->fdc_ticket_masters->primaryKey = 'key';
+        $this->fdc_ticket_masters->bindModel(array(
+            'hasMany' => array(
+                'fdc_backlog_webhooks' => array(
+                    'className' => 'fdc_backlog_webhooks',
+                    'foreignKey' => 'backlog_id',
+                    'order' => 'time DESC',
+                    'fields' => array(
+                        'fdc_task',
+                        'backlog_id',
+                        'summary',
+                        'milestone_id',
+                        'milestone_name',
+                        'issueType_id',
+                        'issueType_name',
+                        'created'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+        $ticketList = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+                'design_task' => 1,
+                'not' => array(
+                    'order' => NULL
+                )
+            ),
+            'order' => 'order asc'
+        ));
+
+
+
+
+        $tmpbacklogMembers = $this->updateAndGetAllMembers();
+        $be_list = array();
+        $ggpe_list = array();
+        $design_list = array();
+        foreach ($tmpbacklogMembers as $key => $value) {
+            if($value['all_members']['role'] == 4 ){
+                $be_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }elseif($value['all_members']['role'] == 30){
+                $design_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }elseif ($value['all_members']['role'] == 40) {
+                $ggpe_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }
+            $backlogMembers[$value['all_members']['backlog_id']] = $value['all_members'];
+        }
+
+
+
+        $design_tickets = array();
+        $desiger_task = array();
+
+
+        $design_team_members = $this->all_members->find('all',array(
+            'conditions' => array(
+                'role' => 30
+            )
+        ));
+        $design_team_by_id = array();
+        foreach ($design_team_members as $key => $value) {
+            $design_team_by_id[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+        }
+
+
+        foreach ($ticketList as $key => $value) {
+            if(!empty($value['fdc_backlog_webhooks'][0])){
+                $design_tickets[] = $value;
+
+                // if(
+                //     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252578 ||
+                //     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252698
+                // ){
+                //     $tsuchie_tasks[$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                // }
+
+                if(isset($value['fdc_ticket_masters']['design'])){
+                    $desiger_task[$design_team_by_id[$value['fdc_ticket_masters']['design']]][$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                }else{
+                    $desiger_task['assign_not_yet'][$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                }
+
+            }
+        }
+
+
+        $members_tmp = $this->all_members->find('all',array());
+        $members = array();
+        foreach ($members_tmp as $key => $value) {
+            // debug($value['all_members']['backlog_id']);
+            // debug($value['all_members']['backlog_name']);
+            $members[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+        }
+//debug($members);
+
+
+
+        $team_list_tmp = $this->fdc_team->find('all',array(
+            'conditions' => array(
+                'status' => 1
+            )
+        ));
+        $team_list = array();
+        foreach ($team_list_tmp as $key => $value) {
+            $team_list[$value['fdc_team']['id']] = $value;
+        }
+
+        $this->set('team_list',$team_list);
+        $this->set('members',$members);
+        $this->set('desiger_task',$desiger_task);
+        // $this->set('tsuchie_tasks',$tsuchie_tasks);
+        // $this->set('be_task',$be_task);
+        //
+        //
+
+
+
+
+
+
+
 
 
     }
@@ -1474,7 +1607,7 @@ class BacklogController extends AppController {
                 if(!empty($got_data['release_result'])){
                     $saveData['fdc_ticket_masters']['release_result'] = $got_data['release_result'];
                 }
-                if(!empty($got_data['parent'])){
+                if(isset($got_data['parent'])){
                     $saveData['fdc_ticket_masters']['parent'] = $got_data['parent'];
                 }
 
@@ -1600,7 +1733,7 @@ class BacklogController extends AppController {
             $decoded_body = json_decode($body,true);
 
 
-
+            $design_flg = 0;
             $fdc_flg = 0;
             foreach($decoded_body['content']['category'] as $key => $value) {
                 // $this->log($value);
@@ -1610,6 +1743,8 @@ class BacklogController extends AppController {
                 || $value['id'] == 204445 //Android
                  ){
                     $fdc_flg = 1;
+                }elseif ($value['id']== 50753 ) { // 制作
+                    $design_flg = 1;
                 }
             }
 
@@ -1620,6 +1755,7 @@ class BacklogController extends AppController {
             $result['milestone_id'] = $decoded_body['content']['milestone'][0]['id'];
             $result['milestone_name'] = $decoded_body['content']['milestone'][0]['name'];
             $result['fdc_task'] = $fdc_flg;
+            $result['design_task'] = $design_flg;
             $result['time'] =  date("Y-m-d H:i:s");
 
             $this->fdc_backlog_webhook->save($result);
@@ -1712,7 +1848,6 @@ class BacklogController extends AppController {
                 $finalResult[$value['issueKey']] = $value;
             }
         }
-
         //チケットマスターからenableなチケット一覧を取得
         $tmp_ticketMasters = $this->fdc_ticket_masters->find('all',array(
             'conditions' => array(
@@ -1727,6 +1862,7 @@ class BacklogController extends AppController {
 
         //backlogからのチケットリスト毎に、チケットマスターの存在確認
         foreach ($finalResult as $key => $value) {
+        //    debug($value);
             //チケットマスターに存在している場合、追加情報を付与
             if(isset($ticketMasters[$key])){
                 // debug('heyhey');
@@ -1736,6 +1872,42 @@ class BacklogController extends AppController {
                 $finalResult[$key]['be'] = $ticketMasters[$key]['fdc_ticket_masters']['be'];
                 $finalResult[$key]['ggpe'] = $ticketMasters[$key]['fdc_ticket_masters']['ggpe'];
                 $finalResult[$key]['design'] = $ticketMasters[$key]['fdc_ticket_masters']['design'];
+
+
+
+                // debug($ticketMasters[$key]['fdc_ticket_masters']['fdc_task']);
+                // debug($ticketMasters[$key]['fdc_ticket_masters']['design_task']);
+
+                //チケットマスター更新情報
+                $fdc_flg = 0;
+                $design_flg = 0;
+                if (!empty($value['category'])) {
+                    foreach ($value['category'] as $category_key => $category) {
+                        // $this->log($value);
+                        if($category['id']== 50751    //FDC
+                        || $category['id'] == 124975   //iOS
+                        || $category['id'] == 220480   //API
+                        || $category['id'] == 204445 //Android
+                         ){
+                            $fdc_flg = 1;
+                        }
+                        if ($category['id']== 50753 ) { // 制作
+                            $design_flg = 1;
+                        }
+
+                        if($fdc_flg || $design_flg){
+                            $saveData[] = array('fdc_ticket_masters' => array(
+                                // 'summary' => $value['summary']
+                                'id' => $ticketMasters[$key]['fdc_ticket_masters']['id'],
+                                'key' => $value['issueKey'],
+                                'status' => 1,
+                                'fdc_task' => $fdc_flg,
+                                'design_task' => $design_flg
+                            ));
+                        }
+                    }
+                }
+
             }else{
                 //チケットマスターにenable状態で存在していない場合
                 //まずはdisable状態でいるかどうかを確認
@@ -1751,11 +1923,30 @@ class BacklogController extends AppController {
                 if(empty($checkData)){
                     //disable状態でも存在していないということは新規チケット
                     //新しくマスタに追加する
+                    $fdc_flg = 0;
+                    $design_flg = 0;
+                    if (!empty($value['category'])) {
+                        foreach ($value['category'] as $category_key => $category) {
+                            // $this->log($value);
+                            if($category['id']== 50751    //FDC
+                            || $category['id'] == 124975   //iOS
+                            || $category['id'] == 220480   //API
+                            || $category['id'] == 204445 //Android
+                             ){
+                                $fdc_flg = 1;
+                            }
+                            if ($category['id']== 50753 ) { // 制作
+                                $design_flg = 1;
+                            }
+                        }
+                    }
                     $saveData[] = array('fdc_ticket_masters' => array(
+                        // 'summary' => $value['summary']
 
                         'key' => $value['issueKey'],
                         'status' => 1,
-                        // 'summary' => $value['summary']
+                        'fdc_task' => $fdc_flg,
+                        'design_task' => $design_flg
                     ));
                 }else{
                     //disable状態でマスタに存在してる場合はenableに戻す
@@ -1765,6 +1956,10 @@ class BacklogController extends AppController {
                 }
             }
         }
+//debug($saveData);
+// debug($updateData);
+
+
 
         //追加かアップデート、または両方、対象のデータがあった場合DB更新
         if(!empty($saveData)){
