@@ -628,9 +628,6 @@ class BacklogController extends AppController {
 
     }
 
-
-
-
     public function fdc_task(){
         //詳細情報出すために、マスターにwebhookからの受け取りを紐づける
         $this->fdc_ticket_masters->primaryKey = 'key';
@@ -721,9 +718,6 @@ class BacklogController extends AppController {
         $this->set('fdc_tickets',$fdc_tickets);
         $this->set('tsuchie_tasks',$tsuchie_tasks);
         $this->set('be_task',$be_task);
-
-
-
 
     }
 
@@ -1012,6 +1006,137 @@ class BacklogController extends AppController {
     }
 
     public function design_team(){
+
+
+
+
+
+
+        //詳細情報出すために、マスターにwebhookからの受け取りを紐づける
+        $this->fdc_ticket_masters->primaryKey = 'key';
+        $this->fdc_ticket_masters->bindModel(array(
+            'hasMany' => array(
+                'fdc_backlog_webhooks' => array(
+                    'className' => 'fdc_backlog_webhooks',
+                    'foreignKey' => 'backlog_id',
+                    'order' => 'time DESC',
+                    'fields' => array(
+                        'fdc_task',
+                        'backlog_id',
+                        'summary',
+                        'milestone_id',
+                        'milestone_name',
+                        'issueType_id',
+                        'issueType_name',
+                        'created'
+                    ),
+                    'limit' => 1,
+                )
+            )
+        ),false);
+
+        $ticketList = $this->fdc_ticket_masters->find('all', array(
+            'conditions' => array(
+                'status' => 1,
+                'design_task' => 1,
+                'not' => array(
+                    'order' => NULL
+                )
+            ),
+            'order' => 'order asc'
+        ));
+
+
+
+
+        $tmpbacklogMembers = $this->updateAndGetAllMembers();
+        $be_list = array();
+        $ggpe_list = array();
+        $design_list = array();
+        foreach ($tmpbacklogMembers as $key => $value) {
+            if($value['all_members']['role'] == 4 ){
+                $be_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }elseif($value['all_members']['role'] == 30){
+                $design_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }elseif ($value['all_members']['role'] == 40) {
+                $ggpe_list[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+            }
+            $backlogMembers[$value['all_members']['backlog_id']] = $value['all_members'];
+        }
+
+
+
+        $design_tickets = array();
+        $desiger_task = array();
+
+
+        $design_team_members = $this->all_members->find('all',array(
+            'conditions' => array(
+                'role' => 30
+            )
+        ));
+        $design_team_by_id = array();
+        foreach ($design_team_members as $key => $value) {
+            $design_team_by_id[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+        }
+
+
+        foreach ($ticketList as $key => $value) {
+            if(!empty($value['fdc_backlog_webhooks'][0])){
+                $design_tickets[] = $value;
+
+                // if(
+                //     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252578 ||
+                //     $value['fdc_backlog_webhooks'][0]['milestone_id'] == 252698
+                // ){
+                //     $tsuchie_tasks[$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                // }
+
+                if(isset($value['fdc_ticket_masters']['design'])){
+                    $desiger_task[$design_team_by_id[$value['fdc_ticket_masters']['design']]][$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                }else{
+                    $desiger_task['assign_not_yet'][$value['fdc_ticket_masters']['fdc_team']][$value['fdc_ticket_masters']['order']] = $value;
+                }
+
+            }
+        }
+
+
+        $members_tmp = $this->all_members->find('all',array());
+        $members = array();
+        foreach ($members_tmp as $key => $value) {
+            // debug($value['all_members']['backlog_id']);
+            // debug($value['all_members']['backlog_name']);
+            $members[$value['all_members']['backlog_id']] = $value['all_members']['backlog_name'];
+        }
+//debug($members);
+
+
+
+        $team_list_tmp = $this->fdc_team->find('all',array(
+            'conditions' => array(
+                'status' => 1
+            )
+        ));
+        $team_list = array();
+        foreach ($team_list_tmp as $key => $value) {
+            $team_list[$value['fdc_team']['id']] = $value;
+        }
+
+        $this->set('team_list',$team_list);
+        $this->set('members',$members);
+        $this->set('desiger_task',$desiger_task);
+        // $this->set('tsuchie_tasks',$tsuchie_tasks);
+        // $this->set('be_task',$be_task);
+        //
+        //
+
+
+
+
+
+
+
 
 
     }
